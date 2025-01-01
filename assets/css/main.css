@@ -135,9 +135,10 @@ body
 	width: 100%;
 }
 .header-title{
-	font-size: 50px;
-	letter-spacing: 10px;
+	/* font-size: px; */
+	/* letter-spacing: 10px; */
 	font-weight: 200;
+	
 }
 .header-subtitle{
 	font-size: 20px;
