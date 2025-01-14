@@ -168,6 +168,10 @@ body
 .twitter-feed{
 	color: #fff;
 }
+.purple{
+	background: rgb(9,56,121);
+background: linear-gradient(90deg, rgba(9,56,121,1) 23%, rgba(0,211,255,0.8576024159663865) 100%);
+}
 .item{
 	text-align: center;
 }
