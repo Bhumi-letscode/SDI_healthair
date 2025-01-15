@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pollution Reporting & Resolution Tracker</title>
+  <link rel="stylesheet" href="/assets/css/air.css">
+</head>
+<body>
+  <header>
+    <h1>Pollution Reporting & Resolution Tracker</h1>
+  </header>
+
+  <section id="report-form">
+    <h2>Report a Pollution Incident</h2>
+    <form>
+      <label for="location">Location:</label>
+      <input type="text" id="location" placeholder="Enter location" required>
+
+      <label for="description">Description:</label>
+      <textarea id="description" placeholder="Describe the issue..." required></textarea>
+
+      <label for="media">Upload Photo/Video:</label>
+      <input type="file" id="media" accept="image/*,video/*">
+
+      <button type="submit">Submit Report</button>
+    </form>
+  </section>
+
+  <section id="tracker">
+    <h2>Resolution Tracker</h2>
+    <div class="report">
+      <h3>Incident: Waste Burning</h3>
+      <p><strong>Location:</strong> XYZ Park</p>
+      <p><strong>Status:</strong> <span class="status pending">Pending</span></p>
+      <p><strong>Resolution Plan:</strong> Clean-up drive scheduled for Jan 29, 2025</p>
+      <button class="volunteer-btn">Volunteer for Clean-Up Drive</button>
+    </div>
+
+    <div class="report">
+      <h3>Incident: Industrial Emissions</h3>
+      <p><strong>Location:</strong> ABC Industrial Area</p>
+      <p><strong>Status:</strong> <span class="status scheduled">Scheduled</span></p>
+      <p><strong>Resolution Plan:</strong> Tree plantation on Feb 10, 2025</p>
+      <button class="volunteer-btn">Volunteer for Tree Plantation</button>
+    </div>
+  </section>
+</body>
+</html>

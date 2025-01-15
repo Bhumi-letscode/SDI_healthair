@@ -240,7 +240,7 @@ background: linear-gradient(90deg, rgba(9,56,121,1) 23%, rgba(0,211,255,0.857602
 }
 .portfolio-img .port-item{
 	width: 100%;
-	height: auto;
+	height: 200px;
 	transition: all .6s ease-in-out;
 }
 .portfolio-img:hover .portfolio-img-hover{
