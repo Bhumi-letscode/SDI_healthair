@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0072ce, #004c99);
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .outer-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .inner-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 5px;
+            padding: 10px;
+            width: 300px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .inner-box select {
+            flex: 1;
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .inner-box .icon {
+            font-size: 18px;
+            color: gray;
+        }
+
+        .instruction {
+            margin-top: 10px;
+            font-size: 16px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer-box">
+        <div class="inner-box">
+            <select>
+                <option disabled selected>ZIP Code, City, or State</option>
+                <option value="delhi">Delhi</option>
+                <option value="mumbai">Mumbai</option>
+                <option value="bangalore">Bangalore</option>
+                <option value="kolkata">Kolkata</option>
+            </select>
+            <span class="icon">⚙️</span>
+        </div>
+        <p class="instruction">Get air quality data where you live.</p>
+    </div>
+</body>
+
+</html>
