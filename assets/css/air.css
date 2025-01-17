@@ -15,14 +15,37 @@ body {
   min-height: 100vh;
 }
 
-header {
-  background: #007BFF;
-  color: white;
+nav {
+  background: rgb(9,56,121);
+  background: linear-gradient(90deg, rgba(9,56,121,1) 23%, rgba(0,211,255,0.8576024159663865) 100%);
   padding: 1rem;
-  text-align: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-h1, h2 {
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+nav a:hover {
+  background-color: #1565c0;
+}
+
+
+h2 {
   margin: 0.5em 0;
 }
 
