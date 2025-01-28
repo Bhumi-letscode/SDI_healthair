@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Assessment Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f0f4f8;
+            color: #2d3748;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 20px;
+            min-height: 100vh;
+        }
+
+        .assessment-section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .question {
+            margin-bottom: 30px;
+            display: none;
+        }
+
+        .question.active {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .question h3 {
+            margin-bottom: 15px;
+            color: #2c5282;
+        }
+
+        .options {
+            display: grid;
+            gap: 10px;
+        }
+
+        .option {
+            padding: 12px 20px;
+            background: #ebf8ff;
+            border: 2px solid #63b3ed;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .option:hover {
+            background: #bee3f8;
+            transform: translateY(-2px);
+        }
+
+        .option.selected {
+            background: #4299e1;
+            color: white;
+        }
+
+        .results {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .recommendation-card {
+            background: #f7fafc;
+            border-left: 4px solid #4299e1;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        .aqi-meter {
+            background: #edf2f7;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+
+        .aqi-level {
+            height: 100%;
+            width: 70%;
+            background: linear-gradient(90deg, #48bb78, #ecc94b, #f56565);
+            transition: width 1s ease;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .emergency-card {
+            background: #fff5f5;
+            border: 2px solid #fc8181;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .emergency-button {
+            background: #f56565;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            width: 100%;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .emergency-button:hover {
+            background: #e53e3e;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e2e8f0;
+            margin: 20px 0;
+            border-radius: 2px;
+        }
+
+        .progress {
+            height: 100%;
+            background: #4299e1;
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 2px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background: #4299e1;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #3182ce;
+            transform: translateY(-2px);
+        }
+
+        .diet-recommendation {
+            background: #f0fff4;
+            border-left: 4px solid #48bb78;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <main class="assessment-section">
+            <h1>Health Assessment Tracker</h1>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+
+            <div id="questions">
+                <div class="question active" data-id="1">
+                    <h3>How many hours do you spend outdoors daily?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 1)">Less than 1 hour</div>
+                        <div class="option" onclick="selectOption(this, 1)">1-3 hours</div>
+                        <div class="option" onclick="selectOption(this, 1)">3-6 hours</div>
+                        <div class="option" onclick="selectOption(this, 1)">More than 6 hours</div>
+                    </div>
+                </div>
+
+                <div class="question" data-id="2">
+                    <h3>Do you experience any of these symptoms frequently?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 2)">Coughing or throat irritation</div>
+                        <div class="option" onclick="selectOption(this, 2)">Breathing difficulties</div>
+                        <div class="option" onclick="selectOption(this, 2)">Eye irritation</div>
+                        <div class="option" onclick="selectOption(this, 2)">None of the above</div>
+                    </div>
+                </div>
+
+                <div class="question" data-id="3">
+                    <h3>What protective measures do you currently use?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 3)">Face mask</div>
+                        <div class="option" onclick="selectOption(this, 3)">Air purifier at home</div>
+                        <div class="option" onclick="selectOption(this, 3)">Both mask and purifier</div>
+                        <div class="option" onclick="selectOption(this, 3)">None</div>
+                    </div>
+                </div>
+
+                <div class="question" data-id="4">
+                    <h3>How would you rate your current diet?</h3>
+                    <div class="options">
+                        <div class="option" onclick="selectOption(this, 4)">Balanced with fruits and vegetables</div>
+                        <div class="option" onclick="selectOption(this, 4)">Moderate, could be better</div>
+                        <div class="option" onclick="selectOption(this, 4)">Poor, need improvement</div>
+                        <div class="option" onclick="selectOption(this, 4)">Not sure</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results" id="results">
+                <h2>Your Health Assessment Results</h2>
+                
+                <div class="recommendation-card">
+                    <h3>Current AQI in Your Area</h3>
+                    <div class="aqi-meter">
+                        <div class="aqi-level"></div>
+                    </div>
+                    <p>AQI Level: <span id="aqiValue">156</span> (Unhealthy)</p>
+                </div>
+
+                <div class="recommendation-card">
+                    <h3>Recommended Precautions</h3>
+                    <ul id="precautions"></ul>
+                </div>
+
+                <div class="diet-recommendation">
+                    <h3>Dietary Recommendations</h3>
+                    <ul id="dietRecommendations"></ul>
+                </div>
+            </div>
+        </main>
+
+        <aside class="sidebar">
+            <h2>Quick Stats</h2>
+            <div id="healthStats">
+                <p>Risk Level: <span id="riskLevel">Calculating...</span></p>
+                <p>Protection Score: <span id="protectionScore">Calculating...</span></p>
+            </div>
+
+            <div class="emergency-card">
+                <h3>Emergency Contact</h3>
+                <p>24/7 Health Support</p>
+                <p>Emergency: 911</p>
+                <p>Health Helpline: 108</p>
+                <button class="emergency-button" onclick="handleEmergency()">
+                    Contact Emergency Support
+                </button>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+        const totalQuestions = 4;
+        let userResponses = {};
+
+        function selectOption(element, questionId) {
+            // Clear previous selection
+            document.querySelectorAll(`.question[data-id="${questionId}"] .option`).forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Select current option
+            element.classList.add('selected');
+            userResponses[questionId] = element.textContent;
+
+            // Wait a bit then move to next question
+            setTimeout(() => {
+                if (questionId < totalQuestions) {
+                    showQuestion(questionId + 1);
+                } else {
+                    showResults();
+                }
+            }, 500);
+        }
+
+        function showQuestion(id) {
+            document.querySelectorAll('.question').forEach(q => {
+                q.classList.remove('active');
+            });
+            document.querySelector(`.question[data-id="${id}"]`).classList.add('active');
+            currentQuestion = id;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        function showResults() {
+            document.getElementById('questions').style.display = 'none';
+            document.getElementById('results').classList.add('active');
+            generateRecommendations();
+        }
+
+        function generateRecommendations() {
+            // Precautions based on responses
+            const precautions = [
+                "Wear N95 mask when outdoors",
+                "Use air purifier indoors",
+                "Avoid outdoor activities during peak pollution hours (early morning and evening)",
+                "Keep windows closed during high pollution periods",
+                "Monitor AQI daily and plan activities accordingly"
+            ];
+
+            // Diet recommendations based on responses
+            const diet = [
+                "Increase Vitamin C intake through citrus fruits",
+                "Consume foods rich in antioxidants (berries, dark leafy greens)",
+                "Include omega-3 rich foods (fish, flaxseeds)",
+                "Stay hydrated with 8-10 glasses of water daily",
+                "Add anti-inflammatory foods to your diet (turmeric, ginger)"
+            ];
+
+            // Update precautions list
+            const precautionsList = document.getElementById('precautions');
+            precautions.forEach(p => {
+                const li = document.createElement('li');
+                li.textContent = p;
+                precautionsList.appendChild(li);
+            });
+
+            // Update diet recommendations
+            const dietList = document.getElementById('dietRecommendations');
+            diet.forEach(d => {
+                const li = document.createElement('li');
+                li.textContent = d;
+                dietList.appendChild(li);
+            });
+
+            // Update risk level and protection score
+            document.getElementById('riskLevel').textContent = 'Moderate';
+            document.getElementById('protectionScore').textContent = '7/10';
+        }
+
+        function handleEmergency() {
+            alert('Connecting to emergency services... If this is a medical emergency, please call 911 immediately.');
+        }
+
+        // Initialize progress bar
+        updateProgress();
+    </script>
+</body>
+</html>
