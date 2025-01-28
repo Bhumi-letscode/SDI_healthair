@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Dashboard</title>
+    <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background: rgb(9, 56, 121);
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: space-around;
+            list-style: none;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #1565c0;
+        }
+
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #0072ce;
+            padding: 10px 0;
+            color: white;
+            margin-top: 100px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .container {
+            display: flex;
+            margin: 20px;
+        }
+
+        .left-panel {
+            flex: 1;
+            background: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-right: 10px;
+        }
+
+        .left-panel .aqi-value {
+            font-size: 80px;
+            font-weight: bold;
+            color: #880000;
+            text-align: center;
+        }
+
+        .left-panel .status {
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            color: #880000;
+        }
+
+        .left-panel table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .left-panel table th,
+        .left-panel table td {
+            text-align: left;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .map {
+            flex: 2;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            height: 600px;
+        }
+
+        .heatmap-section {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .heatmap-section img {
+            width: 90%;
+            height: 500px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index-one-page.html">Home</a></li>
+            <li><a href="aqi.html">AQI</a></li>
+            <li><a href="carbon.html">Carbon Footprints</a></li>
+            <li><a href="index-one-page.html">Contact Us</a></li>
+        </ul>
+            
+    </nav>
+    <div class="navbar">
+        <a href="#">Delhi Institute</a>
+        <a href="#">IGDTUW</a>
+        <a href="#">Saket</a>
+        <a href="#">Locate City</a>
+        <a href="#">Search City</a>
+    </div>
+
+    <div class="container">
+        <div class="left-panel">
+            <h2>Delhi Institute of Tool Engineering, Wazirpur, Delhi</h2>
+            <div class="aqi-value">301</div>
+            <div class="status">Hazardous</div>
+            <p>Updated: Wed 20:00</p>
+            <p>Temp: 13.5°C</p>
+            <table>
+                <tr>
+                    <th>PM2.5</th>
+                    <td>301</td>
+                </tr>
+                <tr>
+                    <th>PM10</th>
+                    <td>209</td>
+                </tr>
+                <tr>
+                    <th>O3</th>
+                    <td>64</td>
+                </tr>
+                <tr>
+                    <th>NO2</th>
+                    <td>44</td>
+                </tr>
+                <tr>
+                    <th>SO2</th>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <th>CO</th>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <th>Pressure</th>
+                    <td>979</td>
+                </tr>
+                <tr>
+                    <th>Humidity</th>
+                    <td>86</td>
+                </tr>
+                <tr>
+                    <th>Wind</th>
+                    <td>3</td>
+                </tr>
+            </table>
+        </div>
+        <div id="map" class="map"></div>
+    </div>
+
+    <div class="heatmap-section">
+        <h2>Heatmaps</h2>
+        <img src="heatmap.png" alt="Heatmap">
+    </div>
+
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([28.7041, 77.1025], 10); // Coordinates for Delhi
+
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+        }).addTo(map);
+
+        // Example markers for air quality data
+        const markers = [
+            { lat: 28.7041, lng: 77.1025, aqi: 301 },
+            { lat: 28.5355, lng: 77.3910, aqi: 406 },
+            { lat: 28.4595, lng: 77.0266, aqi: 292 },
+        ];
+
+        markers.forEach(marker => {
+            L.marker([marker.lat, marker.lng])
+                .addTo(map)
+                .bindPopup(`<strong>AQI: ${marker.aqi}</strong>`);
+        });
+    </script>
+</body>
+
+</html>
