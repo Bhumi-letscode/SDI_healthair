@@ -97,6 +97,48 @@
             </div>
         </div>
     </section>
+    <section>
+        <h1>Product search</h1>
+    <div class="green-line"></div>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search products...">
+    </div>
+
+    <div class="products-grid">
+        <div class="product-card" data-keywords="dust collection industrial plant safety">
+            <img src="/api/placeholder/400/320" alt="Dust collection system" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Dust collection</h2>
+                <p class="product-description">Whether you're looking to collect dust throughout the plant or in specific work areas, we offer systems tailored to your work environment.</p>
+            </div>
+        </div>
+
+        <div class="product-card" data-keywords="fire prevention safety welding industrial">
+            <img src="/api/placeholder/400/320" alt="Dust fire prevention systems" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Dust fire prevention systems</h2>
+                <p class="product-description">Sinto systems can be used to virtually eliminate fire risks at customer plants.</p>
+            </div>
+        </div>
+
+        <div class="product-card" data-keywords="exhaust gas treatment environmental VOC emissions">
+            <img src="/api/placeholder/400/320" alt="Exhaust gas treatment" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Exhaust gas treatment</h2>
+                <p class="product-description">Our exhaust gas treatment systems can break down harmful gases (VOCs) and minimize odors while making effective use of heat energy.</p>
+            </div>
+        </div>
+
+        <div class="product-card" data-keywords="water treatment facility environmental">
+            <img src="/api/placeholder/400/320" alt="Water treatment" class="product-image">
+            <div class="product-content">
+                <h2 class="product-title">Water treatment</h2>
+                <p class="product-description">Whether you're looking for a compact water treatment process or a large, facility-wide treatment system, Sinto has the right solution for your operations.</p>
+            </div>
+        </div>
+    </div>
+    </section>
 
 </body>
 
@@ -129,6 +171,35 @@
         // Add scroll event listener
         window.addEventListener('scroll', handleScroll);
         window.addEventListener('load', handleScroll);
+        const searchInput = document.getElementById('searchInput');
+        const productCards = document.querySelectorAll('.product-card');
+
+        searchInput.addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+
+            productCards.forEach(card => {
+                const keywords = card.dataset.keywords.toLowerCase();
+                const title = card.querySelector('.product-title').textContent.toLowerCase();
+                const description = card.querySelector('.product-description').textContent.toLowerCase();
+                
+                const isVisible = 
+                    keywords.includes(searchTerm) || 
+                    title.includes(searchTerm) || 
+                    description.includes(searchTerm);
+
+                card.style.display = isVisible ? 'block' : 'none';
+            });
+        });
+
+        // Add click animation
+        productCards.forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
     </script>
 </body>
 </html>
