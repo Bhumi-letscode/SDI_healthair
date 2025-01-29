@@ -140,7 +140,30 @@
     </div>
     </section>
     <section>
-        
+        <div class="contact-container">
+            <h2 class="title">Please consult us for inquiries.</h2>
+            <div class="underline"></div>
+    
+            <div class="contact-info">
+                <div class="phone-number">
+                    📞 +81-52-582-9217
+                </div>
+                <div class="phone-number">
+                    📠 +81-52-581-6896
+                </div>
+            </div>
+    
+            <div class="business-hours">
+                Available hours: 9:00-12:00 and 13:00-17:00 JST, Monday through Friday<br>
+                (excluding national and corporate holidays)
+            </div>
+    
+            <div class="contact-form" onclick="showContactForm()">
+                <span class="mail-icon">✉️</span>
+                <span class="form-text">Please enter your question here.</span>
+            </div>
+        </div>
+    
     </section>
 
 </body>
@@ -202,6 +225,21 @@
                     this.style.transform = '';
                 }, 150);
             });
+        });
+        function showContactForm() {
+            // You can implement the form display logic here
+            alert('Contact form clicked! You can implement the form display logic here.');
+        }
+
+        // Add touch feedback for mobile devices
+        const contactForm = document.querySelector('.contact-form');
+        
+        contactForm.addEventListener('touchstart', function() {
+            this.style.backgroundColor = '#218838';
+        });
+        
+        contactForm.addEventListener('touchend', function() {
+            this.style.backgroundColor = '#28a745';
         });
     </script>
 </body>

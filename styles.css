@@ -390,3 +390,84 @@ h1 {
     margin: -2rem auto 2rem;
     border-radius: 2px;
 }
+.contact-container {
+    max-width: 1200px;
+    margin: 2px auto;
+    padding: 5px;
+   
+    border: 2px solid#007BFF;
+    border-radius: 8px;
+}
+
+.title {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.underline {
+    width: 160px;
+    height: 2px;
+    background-color:#007BFF;
+    margin: 0 auto 2rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.phone-number {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.business-hours {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background-color: #007BFF;
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form:hover {
+    background-color:#174a80;
+}
+
+.mail-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.form-text {
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phone-number {
+        font-size: 1.5rem;
+    }
+}
