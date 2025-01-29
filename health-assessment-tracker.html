@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Assessment Tracker</title>
+    <title>Assessment Tracker</title>
     <style>
         * {
             margin: 0;
@@ -15,6 +15,35 @@
         body {
             background: #f0f4f8;
             color: #2d3748;
+        }
+        .navbar {
+            background: #4299e1;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+        }
+
+        .navbar h1 {
+            font-size: 24px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #bee3f8;
         }
 
         .container {
@@ -188,10 +217,19 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <h1>AIR</h1>
+        <ul class="nav-links">
+            <li><a href="index-one-page.html">Home</a></li>
+            <li><a href="health-assessment-tracker.html">Assessment</a></li>
+            <li><a href="air-pollution-tracker.html">Records</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
     
     <div class="container">
         <main class="assessment-section">
-            <h1>Health Assessment Tracker</h1>
+            <h1>Assessments</h1>
             <div class="progress-bar">
                 <div class="progress" id="progressBar"></div>
             </div>
@@ -226,6 +264,15 @@
                         <div class="option" onclick="selectOption(this, 3)">None</div>
                     </div>
                 </div>
+                 <div class="question" id="q3">
+                <h3>What type of area do you live in?</h3>
+                <div class="options">
+                    <button class="option-btn" onclick="nextQuestion('q3', 'Urban (High traffic)')">Urban (High traffic)</button>
+                    <button class="option-btn" onclick="nextQuestion('q3', 'Suburban')">Suburban</button>
+                    <button class="option-btn" onclick="nextQuestion('q3', 'Industrial area')">Industrial area</button>
+                    <button class="option-btn" onclick="nextQuestion('q3', 'Rural')">Rural</button>
+                </div>
+            </div>
 
                 <div class="question" data-id="4">
                     <h3>How would you rate your current diet?</h3>
