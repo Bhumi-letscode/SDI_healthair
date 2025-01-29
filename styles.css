@@ -53,7 +53,7 @@ nav ul li a {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('pic1.png') no-repeat center center/cover;
+    background: url('./assets/images/bg2.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +80,7 @@ nav ul li a {
 .hero h1 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: #ffffff;
 }
 
 /* Search Box */
