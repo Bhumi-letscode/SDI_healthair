@@ -50,7 +50,85 @@
             </div>
         </div>
     </section>
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2 class="section-title fade-in">About Sinto Wellness</h2>
+                    <p class="subtitle fade-in">Creating Better Workplaces Since 1934</p>
+                    <p class="about-text fade-in">
+                        At Sinto, we believe that every workplace should be a space where safety meets innovation. 
+                        Our journey began with a simple mission: to transform industrial environments into spaces 
+                        that prioritize both productivity and worker well-being.
+                    </p>
+                    <p class="about-text fade-in">
+                        Through decades of research and development, we've pioneered solutions that set new 
+                        standards in workplace safety and comfort. Our commitment to innovation has made us 
+                        a trusted partner for industries worldwide.
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">90+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <div class="image-container">
+                        <img src="./assets/images/img_intro.jpg" alt="Industrial workplace">
+                    </div>
+                    <div class="experience-badge">
+                        <div class="experience-number">89+</div>
+                        <div class="experience-text">Years of Excellence</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
 </body>
 
+</html>
+
+
+    <script>
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function handleScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                if (isElementInViewport(element)) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initial check
+        handleScroll();
+
+        // Add scroll event listener
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    </script>
+</body>
 </html>
