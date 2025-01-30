@@ -38,7 +38,7 @@
         .nav-brand {
             font-size: 1.5em;
             font-weight: bold;
-            color: #4CAF50;
+            color: #007BFF;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -59,7 +59,7 @@
 
         .nav-link:hover {
             background: #e8f5e9;
-            color: #4CAF50;
+            color:#007BFF;
         }
 
         .container {
@@ -69,7 +69,7 @@
         }
 
         .points-banner {
-            background: linear-gradient(135deg, #4CAF50, #45a049);
+            background: linear-gradient(135deg,#007BFF, #8bc3ff);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -129,7 +129,7 @@
         }
 
         .points-button {
-            background: #4CAF50;
+            background:  #007BFF;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -141,7 +141,7 @@
         }
 
         .points-button:hover {
-            background: #45a049;
+            background: #203a57;
             transform: scale(1.05);
         }
 
@@ -174,6 +174,65 @@
         .leaderboard-item:hover {
             background-color: #f5f5f5;
         }
+        
+/* CSS */
+.button-20 {
+  touch-action: manipulation;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  color: inherit;
+  font: inherit;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  text-align: inherit;
+  text-transform: inherit;
+  border-style: solid;
+  border-width: 0;
+  box-sizing: border-box;
+
+  border: 1px solid  #007BFF;
+  border-radius: 8px;
+  padding: 12px 16px;
+  background-color:  #007BFF;
+  background-image: radial-gradient(75% 25% at 50% 95%, rgba(255, 255, 255, 0.2), transparent);
+  color: #fafafa;
+  box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+  transition-property: border-color, transform, background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: cubic-bezier(0.55, 1, 0.15, 1);
+  will-change: transform;
+  cursor: pointer;
+}
+
+.button-20:focus {
+  outline-style: solid;
+  outline-color: transparent;
+}
+
+@media (hover: hover) {
+  .button-20:hover {
+    border-color: #007BFF;
+    transform: scale(1.04);
+    background-color:  #203a57;
+  }
+}
+.button-20:focus-visible {
+  border-color:  #007BFF;
+  transform: scale(1.04);
+  background-color: #007BFF;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.0625em;
+  text-underline-offset: 0.125em;
+}
+.button-20:active {
+  border-color: #007BFF;
+  transform: scale(0.96);
+  background-color: #007BFF;
+}
+
 
         /* Footer Styles */
         .footer {
@@ -193,7 +252,7 @@
         }
 
         .footer-section h4 {
-            color: #4CAF50;
+            color: #007BFF;
             margin-bottom: 1rem;
         }
 
@@ -212,7 +271,7 @@
         }
 
         .footer-section a:hover {
-            color: #4CAF50;
+            color: #007BFF;
         }
 
         /* Animations */
@@ -322,21 +381,21 @@
                         <h4>Eco-friendly Water Bottle</h4>
                         <p>100 points</p>
                     </div>
-                    <button class="redeem-button" onclick="redeemPoints(100)">Redeem</button>
+                    <button class="button-20" onclick="redeemPoints(100)">Redeem</button>
                 </div>
                 <div class="reward-item">
                     <div class="reward-info">
                         <h4>Public Transport Pass</h4>
                         <p>200 points</p>
                     </div>
-                    <button class="redeem-button" onclick="redeemPoints(200)">Redeem</button>
+                    <button class="button-20" onclick="redeemPoints(200)">Redeem</button>
                 </div>
                 <div class="reward-item">
                     <div class="reward-info">
                         <h4>Solar Phone Charger</h4>
                         <p>150 points</p>
                     </div>
-                    <button class="redeem-button" onclick="redeemPoints(150)">Redeem</button>
+                    <button class="button-20" onclick="redeemPoints(150)">Redeem</button>
                 </div>
             </div>
         </div>
