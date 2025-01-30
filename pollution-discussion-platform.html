@@ -25,13 +25,179 @@
             /* Dark gray */
             --card-background: #ffffff;
             /* White */
+            
+        }
+        :root {
+            --primary:#007bff;
+            
+            --dark: #244676;
         }
 
         body {
             background-color: var(--background-color);
             color: var(--text-color);
         }
+        .navbar {
+            min-height: 70px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
+        .navbar.scrolled {
+            background: var(--dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: white !important;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 800;
+            position: relative;
+            color: var(--primary) !important;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            bottom: 5px;
+            right: -8px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark) !important;
+            margin: 0 10px;
+            padding: 10px !important;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 25px;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: var(--primary) !important;
+        }
+
+        .nav-cta {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 25px;
+            color: white !important;
+            padding: 10px 25px !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-cta:hover::before {
+            left: 0;
+        }
+
+        .nav-cta:hover {
+            color: white !important;
+            box-shadow: 0 5px 15px rgba(11, 91, 182, 0.702);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            left: 0;
+        }
+
+        .navbar-toggler span:nth-child(1) {
+            top: 0;
+        }
+
+        .navbar-toggler span:nth-child(2) {
+            top: 9px;
+        }
+
+        .navbar-toggler span:nth-child(3) {
+            top: 18px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 9px;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: white;
+                border-radius: 15px;
+                margin-top: 15px;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-link {
+                margin: 8px 0;
+            }
+        }
         .hero-section {
             position: relative;
             height: 80vh;
@@ -187,24 +353,9 @@
             color: #dc3545;
         }
 
-        .nav-link {
-            position: relative;
-        }
+       
 
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #fff;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
+     
 
         .floating-btn {
             position: fixed;
@@ -288,30 +439,21 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+     <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="bi bi-cloud-fill me-2"></i>
-                Clean Air Initiative
-            </a>
+            <a class="navbar-brand" href="#">AIR</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item">
-                        <a class="nav-link" href="#discussion">Discussion</a>
+                        <a class="nav-link" href="index-one-page.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#solutions">Solutions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#education">Education</a>
-                    </li>
-                    <li class="nav-item">
-                        <button class="btn btn-light ms-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                            <i class="bi bi-person-fill"></i> Login
-                        </button>
+                        <a class="nav-link" href="#">AQI</a>
                     </li>
                 </ul>
             </div>
