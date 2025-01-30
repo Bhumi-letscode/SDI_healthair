@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Quality Reporter</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            /* Updated background with a subtle pattern */
+            background: #e8f4f8;
+            background-image: 
+                radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,0.3) 21%, rgba(255,255,255,0.3) 34%, transparent 35%, transparent),
+                radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,0.3) 21%, rgba(255,255,255,0.3) 34%, transparent 35%, transparent);
+            background-size: 60px 120px;
+        }
+
+        /* Rest of the styles remain exactly the same */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255,0.857) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .air-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100%) translateX(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100%) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .report-section {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #01baef;
+            outline: none;
+        }
+
+        button {
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255,0.857) 100%);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+        }
+
+        .post {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1.5rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .preview {
+            max-width: 200px;
+            max-height: 200px;
+            display: none;
+            margin: 10px 0;
+        }
+
+        footer {
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255,0.857) 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: url('data:image/svg+xml,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="%23ffffff" fill-opacity="0.1"/></svg>') repeat-x;
+            background-size: 1200px 100px;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-1200px); }
+        }
+    </style>
+</head>
+<!-- Rest of the HTML and JavaScript remains exactly the same -->
+<body>
+    <header>
+        <div class="air-particles" id="airParticles"></div>
+        <h1>Air Quality Reporter</h1>
+        <p>Monitor and Report Air Quality Incidents in Real-Time</p>
+    </header>
+
+    <div class="container">
+        <section class="report-section">
+            <h2>Report an Incident</h2>
+            <form id="reportForm">
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" id="location" required placeholder="Enter incident location">
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" rows="4" required placeholder="Describe the air quality incident"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="media">Upload Photo/Video</label>
+                    <input type="file" id="media" accept="image/*,video/*">
+                    <img id="preview" class="preview">
+                </div>
+
+                <button type="submit">Submit Report</button>
+            </form>
+        </section>
+
+        <section class="feed">
+            <h2>Recent Reports</h2>
+            <div id="posts"></div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="wave"></div>
+        <p>Together for Cleaner Air</p>
+        <p>© 2025 Air Quality Reporter</p>
+    </footer>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const container = document.getElementById('airParticles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 10 + 5 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.animationDuration = Math.random() * 10 + 5 + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Initialize particles
+        createParticles();
+
+        // Preview uploaded media
+        const mediaInput = document.getElementById('media');
+        const preview = document.getElementById('preview');
+
+        mediaInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.style.display = 'block';
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Handle form submission
+        const reportForm = document.getElementById('reportForm');
+        reportForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const location = document.getElementById('location').value;
+            const description = document.getElementById('description').value;
+            const mediaFile = document.getElementById('media').files[0];
+
+            createPost({
+                location,
+                description,
+                media: mediaFile ? URL.createObjectURL(mediaFile) : null,
+                timestamp: new Date(),
+                likes: 0,
+                comments: []
+            });
+
+            reportForm.reset();
+            preview.style.display = 'none';
+        });
+
+        function createPost(post) {
+    const postsContainer = document.getElementById('posts');
+    
+    const postElement = document.createElement('div');
+    postElement.className = 'post';
+    
+    postElement.innerHTML = `
+        <div class="post-header">
+            <img src="../assets/pollo1.webp" alt="User avatar" style="width: 600px; height: 300px; justify-content: center; align-items: center; >
+            <div>
+                <h3></h3>
+                <small>${post.timestamp.toLocaleString()}</small>
+            </div>
+        </div>
+        <div class="post-content">
+            <p><strong>Location:</strong> ${post.location}</p>
+            <p>${post.description}</p>
+            ${post.media ? `<img src="" class="post-media" alt="">` : ''}
+        </div>
+        <div class="post-actions">
+            <button onclick="handleLike(this)">
+                👍 <span class="like-count">${post.likes}</span> Likes
+            </button>
+            <button onclick="toggleComments(this)">
+                💭 Comments
+            </button>
+        </div>
+        <div class="comments" style="display: none;">
+            <div class="comment-list"></div>
+            <div class="form-group">
+                <input type="text" placeholder="Write a comment..." onkeypress="handleComment(event, this)">
+            </div>
+        </div>
+    `;
+    
+    postsContainer.insertBefore(postElement, postsContainer.firstChild);
+}
+
+
+
+        // Sample posts
+        const samplePosts = [
+            {
+                location: "Downtown Area, Main Street",
+                description: "Strong chemical smell in the air. Several residents reporting respiratory discomfort.",
+                media: "/api/placeholder/800/400",
+                timestamp: new Date(Date.now() - 7200000),
+                likes: 23,
+                comments: []
+            }
+        ];
+
+        samplePosts.forEach(post => createPost(post));
+
+        function handleLike(button) {
+            const likeCount = button.querySelector('.like-count');
+            likeCount.textContent = parseInt(likeCount.textContent) + 1;
+        }
+
+        function toggleComments(button) {
+            const commentsSection = button.closest('.post').querySelector('.comments');
+            commentsSection.style.display = commentsSection.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function handleComment(event, input) {
+            if (event.key === 'Enter' && input.value.trim()) {
+                const commentList = input.closest('.comments').querySelector('.comment-list');
+                const comment = document.createElement('div');
+                comment.className = 'comment';
+                comment.innerHTML = `
+                    <img src="" alt="User avatar" style="width: 30px; height: 30px; border-radius: 50%;">
+                    <div>
+                        <strong></strong>
+                        <p>${input.value}</p>
+                    </div>
+                `;
+                commentList.appendChild(comment);
+                input.value = '';
+            }
+        }
+    </script>
+</body>
+</html>
