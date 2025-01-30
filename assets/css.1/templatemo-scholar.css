@@ -188,12 +188,13 @@ body {
 }
 
 ::selection {
-  background: #7a6ad8;
-  color: #fff;
+  background-color: #007BFF;
+;
+  color: #007BFF;
 }
 
 ::-moz-selection {
-  background: #7a6ad8;
+  background:  #007BFF;
   color: #fff;
 }
 
@@ -229,7 +230,7 @@ body {
 .main-button a {
   display: inline-block;
   background-color: #fff;
-  color: #7a6ad8;
+  color:  #007BFF;
   font-size: 14px;
   font-weight: 500;
   height: 40px;
@@ -240,7 +241,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   color: #fff;
 }
 
@@ -317,7 +318,7 @@ Pre-loader Style
   height: 16px;
   top: 12px;
   left: 15px;
-  background: #7a6ad8;
+  background:  #007BFF;
   border-radius: 50%;
   -webkit-transform: translateX(0);
   transform: translateX(0);
@@ -340,7 +341,7 @@ Pre-loader Style
   width: 16px;
   height: 16px;
   margin-left: 16px;
-  background: #7a6ad8;
+  background:  #007BFF;
   border-radius: 50%;
 }
 
@@ -353,7 +354,7 @@ Header Style
 */
 
 .background-header {
-  background-color: #7a6ad8 !important;
+  background-color: #007BFF !important;
   border-radius: 0px 0px 25px 25px;
   height: 80px !important;
   position: fixed !important;
@@ -689,7 +690,7 @@ Header Style
 
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #7a6ad8 !important;
+    color: #007BFF !important;
     opacity: 1;
   }
 
@@ -790,7 +791,7 @@ Banner Style
 }
 
 .main-banner .item span.category {
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   color: #fff;
   font-size: 14px;
   text-transform: uppercase;
@@ -825,7 +826,7 @@ Banner Style
 
 .main-banner .item .buttons .main-button a {
   font-size: 14px;
-  color: #7a6ad8;
+  color: #007BFF;
   background-color: #fff;
   display: inline-block;
   height: 50px;
@@ -836,7 +837,7 @@ Banner Style
 }
 
 .main-banner .item .buttons .icon-button i {
-  color: #7a6ad8;
+  color: #007BFF;
   background-color: #fff;
   display: inline-block;
   height: 50px;
@@ -909,7 +910,7 @@ Services Style
   display: inline-block;
   text-align: center;
   line-height: 190px;
-  background-color: #7a6ad8;
+  background-color:  #007BFF;
   border-radius: 50%;
   position: absolute;
   right: 0;
@@ -972,7 +973,7 @@ About Style
 .accordion {
   margin-top: -40px;
   margin-bottom: -40px;
-  background-color: #7a6ad8;
+  background-color:  #007BFF;
   border-radius: 40px;
   padding: 80px 50px 50px 50px;
 }
@@ -991,7 +992,7 @@ About Style
 }
 
 .accordion-button:not(.collapsed) {
-  color: #7a6ad8;
+  color: #007BFF;
   background-color: #fff;
 }
 
@@ -1013,7 +1014,7 @@ h2.accordion-header button {
   text-align: center;
   line-height: 30px;
   border-radius: 50%;
-  background-color: #7a6ad8;
+  background-color:  #007BFF;
   color: #fff;
 }
 
@@ -1077,7 +1078,7 @@ Courses Style
 
 .event_filter li .event_filter li a.is_active,
 .event_filter li a:hover {
-  color: #7a6ad8;
+  color:  #007BFF;
 }
 
 .events_item .thumb {
@@ -1096,7 +1097,7 @@ Courses Style
   top: 30px;
   font-size: 14px;
   text-transform: uppercase;
-  color: #7a6ad8;
+  color:  #007BFF;
   background-color: rgba(250, 250, 250, 0.95);
   padding: 8px 20px;
   border-radius: 25px;
@@ -1108,7 +1109,7 @@ Courses Style
   position: absolute;
   right: -30px;
   top: -50px;
-  background-color: rgba(122, 106, 216, 0.95);
+  background-color:  #007BFF;
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -1146,7 +1147,7 @@ Courses Style
 }
 
 .events_item .down-content span.author {
-  color: #7a6ad8;
+  color: #007BFF;
   font-size: 15px;
   display: inline-block;
   margin-bottom: 6px;
@@ -1187,7 +1188,7 @@ Facts Style
   z-index: -1;
   width: 95%;
   height: 100%;
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   content: '';
   border-top-right-radius: 500px;
   border-bottom-right-radius: 500px;
@@ -1266,7 +1267,7 @@ Team Style
 }
 
 .team-member .main-content span.category {
-  color: #7a6ad8;
+  color:  #007BFF;
   font-size: 15px;
 }
 
@@ -1284,7 +1285,7 @@ Team Style
 
 .team-member .main-content ul li a {
   background-color: #fff;
-  color: #7a6ad8;
+  color: #007BFF;
   display: inline-block;
   text-align: center;
   line-height: 40px;
@@ -1296,7 +1297,7 @@ Team Style
 }
 
 .team-member .main-content ul li a:hover {
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   color: #fff;
 }
 
@@ -1338,7 +1339,7 @@ Testimonials Style
 }
 
 .testimonials .item {
-  background-color: #7a6ad8;
+  background-color:  #007BFF;
   border-radius: 25px;
   padding: 80px;
 }
@@ -1388,7 +1389,7 @@ Testimonials Style
   line-height: 50px;
   font-size: 24px;
   display: inline-block;
-  color: #7a6ad8;
+  color:  #007BFF;
   background-color: #fff;
   border-radius: 50%;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.10);
@@ -1455,7 +1456,7 @@ Events Style
 .events .item ul li span.category {
   font-size: 14px;
   text-transform: uppercase;
-  color: #7a6ad8;
+  color: #007BFF;
   background-color: #fff;
   padding: 8px 20px;
   border-radius: 25px;
@@ -1478,7 +1479,7 @@ Events Style
 
 .events .item ul li h6 {
   font-size: 16px;
-  color: #7a6ad8;
+  color: #007BFF;
   font-weight: 600;
 }
 
@@ -1486,7 +1487,7 @@ Events Style
   position: absolute;
   right: 0;
   top: 22px;
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   width: 60px;
   height: 120px;
   display: inline-block;
@@ -1548,7 +1549,7 @@ Contact Style
   position: absolute;
   left: 0;
   top: 0;
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   width: 80px;
   padding: 30px 8px;
   line-height: 25px;
@@ -1578,7 +1579,7 @@ Contact Style
 
 .contact-us .special-offer h6 em {
   font-style: normal;
-  color: #7a6ad8;
+  color: #007BFF;
   font-weight: 600;
 }
 
@@ -1589,7 +1590,7 @@ Contact Style
 
 .contact-us .special-offer h4 em {
   font-style: normal;
-  color: #7a6ad8;
+  color: #007BFF;
 }
 
 .contact-us .special-offer a {
@@ -1601,7 +1602,7 @@ Contact Style
   display: inline-block;
   text-align: center;
   line-height: 50px;
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   color: #fff;
   border-radius: 50%;
 }
@@ -1609,7 +1610,7 @@ Contact Style
 .contact-us .contact-us-content {
   border-radius: 25px;
   padding: 80px;
-  background-color: #7a6ad8;
+  background-color: #007BFF;
   position: relative;
   z-index: 1;
 }
@@ -1686,7 +1687,7 @@ Contact Style
   background-color: #fff;
   padding: 0px 25px;
   border-radius: 25px;
-  color: #7a6ad8;
+  color: #007BFF;
   transition: all .4s;
   position: relative;
   z-index: 3;
@@ -1698,8 +1699,8 @@ Contact Style
 
 .contact-us-content .more-info {
   text-align: center;
-  background: rgb(85, 0, 227);
-  background: linear-gradient(90deg, rgba(85, 0, 227, 1) 0%, rgba(198, 61, 255, 1) 100%);
+  background: rgb(122,195,255);
+  background: linear-gradient(90deg, rgba(122,195,255,1) 23%, rgba(79,122,206,1) 100%);
   border-radius: 0px 0px 23px 23px;
   padding: 45px 30px 15px 30px;
 }
@@ -1730,7 +1731,7 @@ Footer Style
 footer {
   margin-top: 150px;
   position: relative;
-  background-color: #7a6ad8;
+  background-color:  #007BFF;
   vertical-align: middle;
   min-height: 150px;
   border-radius: 150px 150px 0px 0px;
@@ -1905,7 +1906,7 @@ body {
   }
 
   .about-us .main-button a {
-    background-color: #7a6ad8;
+    background-color: #007BFF;
     color: #fff;
   }
 
