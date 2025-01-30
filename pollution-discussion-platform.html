@@ -453,7 +453,7 @@
                         <a class="nav-link" href="index-one-page.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">AQI</a>
+                        <a class="nav-link" href="#">Community</a>
                     </li>
                 </ul>
             </div>
@@ -773,6 +773,25 @@
         window.onload = function () {
             initialPosts.forEach(post => displayPost(post));
         };
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
     </script>
 </body>
