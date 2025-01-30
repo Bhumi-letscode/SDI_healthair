@@ -9,6 +9,21 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
+        /* Custom Color Palette */
+        :root {
+            --primary-color: #1a73e8; /* Modern blue */
+            --secondary-color: #34a853; /* Green */
+            --accent-color: #fbbc05; /* Yellow */
+            --background-color: #f8f9fa; /* Light gray */
+            --text-color: #202124; /* Dark gray */
+            --card-background: #ffffff; /* White */
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
         .hero-section {
             position: relative;
             height: 80vh;
@@ -38,12 +53,108 @@
             border-radius: 10px;
         }
 
-        .solution-card {
-            transition: transform 0.3s ease;
+        .card {
+            background-color: var(--card-background);
+            border: none;
+            border-radius: 12px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .solution-card:hover {
-            transform: translateY(-5px);
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .solution-card {
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .solution-card .progress-bar {
+            background-color: var(--accent-color);
+        }
+
+        .solution-card:hover .progress-bar {
+            width: 100% !important;
+            transition: width 0.5s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #1557b3; /* Darker blue */
+        }
+
+        .btn-outline-primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-outline-success {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline-success:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-outline-info {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        .btn-outline-info:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+
+        .progress {
+            height: 15px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .progress-bar {
+            border-radius: 5px;
+        }
+
+        textarea {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        textarea:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
         }
 
         .post {
@@ -87,6 +198,7 @@
             right: 20px;
             z-index: 1000;
         }
+
         .container2 {
             position: relative;
             height: 1vh;
@@ -137,7 +249,6 @@
         .footer-content {
             margin-top: 20px;
             margin-bottom: 80px;
-
         }
 
         .footer-content h2 {
@@ -223,7 +334,7 @@
                             </button>
                         </div>
                     </div>
-                    <div id="posts-container">
+                    <div id="posts-container" class="fade-in">
                         <!-- Posts will be added here dynamically -->
                     </div>
                 </div>
@@ -235,43 +346,43 @@
             <h2 class="text-center mb-4">Community Solutions</h2>
             <div class="row g-4">
                 <div class="col-md-4">
-                    <div class="card solution-card h-100">
+                    <div class="card solution-card h-100" onclick="showDetails('public-transport')">
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <i class="bi bi-bus-front display-4 text-primary"></i>
+                                <i class="bi bi-bus-front display-4"></i>
                             </div>
                             <h5 class="card-title">Public Transportation Initiative</h5>
                             <p class="card-text">Implementing electric buses and encouraging public transport usage has reduced our city's carbon emissions by 15%.</p>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-success" style="width: 75%">75% Complete</div>
+                                <div class="progress-bar" style="width: 75%">75% Complete</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card solution-card h-100">
+                    <div class="card solution-card h-100" onclick="showDetails('urban-forest')">
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <i class="bi bi-tree display-4 text-success"></i>
+                                <i class="bi bi-tree display-4"></i>
                             </div>
                             <h5 class="card-title">Urban Forest Project</h5>
                             <p class="card-text">Our community planted 1000 trees last month, creating natural air filters in urban areas.</p>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-success" style="width: 90%">90% Complete</div>
+                                <div class="progress-bar" style="width: 90%">90% Complete</div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <div class="card solution-card h-100">
+                    <div class="card solution-card h-100" onclick="showDetails('industrial-emission')">
                         <div class="card-body">
                             <div class="text-center mb-3">
-                                <i class="bi bi-factory display-4 text-danger"></i>
+                                <i class="bi bi-factory display-4"></i>
                             </div>
                             <h5 class="card-title">Industrial Emission Control</h5>
                             <p class="card-text">Local industries adopted advanced filtration systems, reducing particulate matter by 30%.</p>
                             <div class="progress mb-3">
-                                <div class="progress-bar bg-success" style="width: 60%">60% Complete</div>
+                                <div class="progress-bar" style="width: 60%">60% Complete</div>
                             </div>
                         </div>
                     </div>
@@ -291,7 +402,7 @@
                                 Latest Research
                             </h5>
                             <p class="card-text">New study reveals the impact of air pollution on respiratory health.</p>
-                            <button class="btn btn-outline-primary">Read More</button>
+                            <button class="btn btn-outline-primary" onclick="window.location.href='#'">Read More</button>
                         </div>
                     </div>
                 </div>
@@ -303,7 +414,7 @@
                                 Upcoming Events
                             </h5>
                             <p class="card-text">Join our weekly webinar series on air quality monitoring.</p>
-                            <button class="btn btn-outline-success">Register Now</button>
+                            <button class="btn btn-outline-success" onclick="window.location.href='#'">Register Now</button>
                         </div>
                     </div>
                 </div>
@@ -315,7 +426,7 @@
                                 Resources
                             </h5>
                             <p class="card-text">Access free educational materials and guides.</p>
-                            <button class="btn btn-outline-info">Download</button>
+                            <button class="btn btn-outline-info" onclick="window.location.href='#'">Download</button>
                         </div>
                     </div>
                 </div>
@@ -374,8 +485,10 @@
             </div>
         </div>
     </div>
+
     <div class="container2">
     </div>
+
     <footer>
         <div class="wave"></div>
         <div class="wave"></div>
@@ -397,86 +510,105 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
         // Sample initial posts
-        const initialPosts = [
-            {
-                author: "Environmental Expert",
-                content: "Regular air quality monitoring is crucial. I recommend using AQI monitors in your homes.",
-                timestamp: "2 hours ago",
-                likes: 15
-            },
-            {
-                author: "Community Member",
-                content: "Started carpooling with my neighbors. Small steps make a big difference!",
-                timestamp: "5 hours ago",
-                likes: 10
-            }
-        ];
+const initialPosts = [
+    {
+        author: "Environmental Expert",
+        content: "Regular air quality monitoring is crucial. I recommend using AQI monitors in your homes.",
+        timestamp: "2 hours ago",
+        likes: 15
+    },
+    {
+        author: "Community Member",
+        content: "Started carpooling with my neighbors. Small steps make a big difference!",
+        timestamp: "5 hours ago",
+        likes: 10
+    }
+];
 
-        // Function to add a new post
-        function addPost() {
-            const content = document.getElementById('post-content').value;
-            if (content.trim() === '') return;
+// Function to add a new post
+function addPost() {
+    const content = document.getElementById('post-content').value;
+    if (content.trim() === '') {
+        alert('Please enter some content before posting.');
+        return;
+    }
 
-            const post = {
-                author: "User",
-                content: content,
-                timestamp: "Just now",
-                likes: 0
-            };
+    const post = {
+        author: "User",
+        content: content,
+        timestamp: "Just now",
+        likes: 0
+    };
 
-            displayPost(post);
-            document.getElementById('post-content').value = '';
-        }
+    displayPost(post);
+    document.getElementById('post-content').value = '';
+}
 
-        // Function to toggle like
-        function toggleLike(button) {
-            button.classList.toggle('active');
-            const likeCount = button.querySelector('.like-count');
-            let count = parseInt(likeCount.textContent);
-            if (button.classList.contains('active')) {
-                likeCount.textContent = count + 1;
-            } else {
-                likeCount.textContent = count - 1;
-            }
-        }
+// Function to toggle like
+function toggleLike(button) {
+    button.classList.toggle('active');
+    const likeCount = button.querySelector('.like-count');
+    let count = parseInt(likeCount.textContent);
+    if (button.classList.contains('active')) {
+        likeCount.textContent = count + 1;
+    } else {
+        likeCount.textContent = count - 1;
+    }
+}
 
-        // Function to display a post
-        function displayPost(post) {
-            const postsContainer = document.getElementById('posts-container');
-            const postElement = document.createElement('div');
-            postElement.className = 'card post mb-3';
-            postElement.innerHTML = `
-                <div class="card-body">
-                    <div class="d-flex justify-content-between align-items-center mb-2">
-                        <h6 class="card-subtitle mb-2 text-muted">
-                            <i class="bi bi-person-circle me-2"></i>${post.author}
-                        </h6>
-                        <small class="text-muted">${post.timestamp}</small>
-                    </div>
-                    <p class="card-text">${post.content}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                        <button onclick="toggleLike(this)" class="btn btn-link text-decoration-none like-btn">
-                            <i class="bi bi-heart"></i>
-                            <span class="like-count">${post.likes}</span>
-                        </button>
-                        <div>
-                            <button class="btn btn-sm btn-outline-primary me-2">
-                                <i class="bi bi-reply"></i> Reply
-                            </button>
-                            <button class="btn btn-sm btn-outline-secondary">
-                                <i class="bi bi-share"></i> Share
-                            </button>
-                        </div>
-                    </div>
+// Function to display a post
+function displayPost(post) {
+    const postsContainer = document.getElementById('posts-container');
+    const postElement = document.createElement('div');
+    postElement.className = 'card post mb-3 fade-in';
+    postElement.innerHTML = `
+        <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <h6 class="card-subtitle mb-2 text-muted">
+                    <i class="bi bi-person-circle me-2"></i>${post.author}
+                </h6>
+                <small class="text-muted">${post.timestamp}</small>
+            </div>
+            <p class="card-text">${post.content}</p>
+            <div class="d-flex justify-content-between align-items-center">
+                <button onclick="toggleLike(this)" class="btn btn-link text-decoration-none like-btn">
+                    <i class="bi bi-heart"></i>
+                    <span class="like-count">${post.likes}</span>
+                </button>
+                <div>
+                    <button class="btn btn-sm btn-outline-primary me-2">
+                        <i class="bi bi-reply"></i> Reply
+                    </button>
+                    <button class="btn btn-sm btn-outline-secondary">
+                        <i class="bi bi-share"></i> Share
+                    </button>
                 </div>
-            `;
-            postsContainer.insertBefore(postElement, postsContainer.firstChild);
-        }
+            </div>
+        </div>
+    `;
+    postsContainer.insertBefore(postElement, postsContainer.firstChild);
+}
 
-        // Display initial posts
-        window.onload = function() {
-            initialPosts.forEach(post => displayPost(post));
-        };
-    </script>
+// Function to show details of a solution
+function showDetails(id) {
+    alert(`Details for ${id} would be shown here.`);
+}
+
+// Touch event handling for mobile devices
+document.querySelectorAll('.solution-card').forEach(card => {
+    card.addEventListener('touchstart', function() {
+        this.classList.add('hover');
+    });
+    card.addEventListener('touchend', function() {
+        this.classList.remove('hover');
+    });
+});
+
+// Display initial posts
+window.onload = function() {
+    initialPosts.forEach(post => displayPost(post));
+};
+
+</script>
 </body>
 </html>
