@@ -53,7 +53,7 @@ nav ul li a {
 .hero {
     position: relative;
     height: 100vh;
-    background: url('pic1.png') no-repeat center center/cover;
+    background: url('./assets/images/bg2.jpg') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -80,6 +80,7 @@ nav ul li a {
 .hero h1 {
     font-size: 36px;
     margin-bottom: 20px;
+    color: #ffffff;
 }
 
 /* Search Box */
@@ -148,5 +149,326 @@ nav ul li a {
 
     .categories {
         flex-wrap: wrap;
+    }
+}
+.about-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-content {
+    position: relative;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background:#007BFF;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.about-content:hover .section-title::after {
+    width: 120px;
+}
+
+.subtitle {
+    color:#007BFF;
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.about-text {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-box {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-number {
+    font-size: 2rem;
+    color: #007BFF;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.about-image {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    padding-bottom: 120%;
+    background: #f8f9fa;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.05);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: 30px;
+    right: -20px;
+    background:#007BFF;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 166, 81, 0.3);
+    z-index: 2;
+}
+
+.experience-number {
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.experience-text {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .experience-badge {
+        right: 20px;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+.search-container {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color:#007BFF;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 1.5rem;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.product-description {
+    color: #666;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
+
+.green-line {
+    width: 50px;
+    height: 4px;
+    background-color:#007BFF;
+    margin: -2rem auto 2rem;
+    border-radius: 2px;
+}
+.contact-container {
+    max-width: 1200px;
+    margin: 2px auto;
+    padding: 5px;
+   
+    border: 2px solid#007BFF;
+    border-radius: 8px;
+}
+
+.title {
+    text-align: center;
+    color: #007BFF;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.underline {
+    width: 160px;
+    height: 2px;
+    background-color:#007BFF;
+    margin: 0 auto 2rem;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.phone-number {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.business-hours {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background-color: #007BFF;
+    padding: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact-form:hover {
+    background-color:#174a80;
+}
+
+.mail-icon {
+    color: white;
+    font-size: 1.5rem;
+}
+
+.form-text {
+    color: white;
+    font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .phone-number {
+        font-size: 1.5rem;
     }
 }
