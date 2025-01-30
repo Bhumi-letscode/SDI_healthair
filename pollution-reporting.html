@@ -10,6 +10,30 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
         rel="stylesheet">
     <style>
+         nav {
+            background-color: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255,0.857) 100%); /* Dark background color */
+            padding: 10px 20px; /* Adds padding to the navbar */
+        }
+
+        /* Navbar Links Container */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content:flex-end; /* Align links to the left */
+        }
+
+        nav ul li {
+            margin-right: 20px; /* Space between each navbar item */
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -187,28 +211,16 @@
         <h1>Air Quality Reporter</h1>
         <p>Monitor and Report Air Quality Incidents in Real-Time</p>
     
-        <nav class="navbar navbar-expand-lg">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item">
-                            <a class="nav-link" href="index-one-page.html">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Community</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pollution-reporting.html">Pollution Reporting</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav>
+            <ul>
+                <li><a href="index-one-page.html">Home</a></li>
+                <li><a href="pollution-discussion-platform.html">Community</a></li>
+                <li><a href="#">Pollution Reporting</a></li>
+            </ul>
         </nav>
+    
+
+
     </header>
 
 
