@@ -22,12 +22,12 @@
 }
 .container2 {
 	position: relative;
-	height: 80vh;
+	height: 1vh;
 }
 
 footer {
 	position: relative;
-	background-color: #1c1f21;
+	background-color:#FFFFFF;
 	padding: 50px 20px;
 	text-align: center;
 }
@@ -38,7 +38,7 @@ footer {
 	left: 0;
 	height: 120px;
 	width: 100%;
-	background: url('wave.png') repeat-x;
+	background: url('/wave.png') repeat-x;
 	background-size: 250rem 30rem;
 	animation: animate 15s linear infinite;
 }
@@ -82,11 +82,11 @@ footer {
 }
 
 .footer-links a {
-	color: #ddd;
+	color: #1c88d0;
 	margin: 0 10px;
 	text-decoration: none;
 }
 
 .footer-links a:hover {
-	color: #fff;
+	color: blue;
 }
