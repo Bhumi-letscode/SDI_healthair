@@ -174,29 +174,70 @@ body {
 }
 
 /* ======= 3D Footer ======= */
-.footer {
-    background: rgb(9, 56, 121);
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-weight: bold;
+footer {
     position: relative;
-    box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.3);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    background-color:#FFFFFF;
+    padding: 50px 20px;
+    text-align: center;
 }
 
-.footer::before {
-    content: "";
+.wave {
     position: absolute;
-    top: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80%;
-    height: 10px;
-    background: rgba(0, 211, 255, 0.8);
-    border-radius: 50%;
-    box-shadow: 0px -5px 15px rgba(0, 211, 255, 0.5);
+    bottom: 0;
+    left: 0;
+    height: 120px;
+    width: 100%;
+    background: url('wave.png') repeat-x;
+    background-size: 250rem 30rem;
+    animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+    0% {
+        background-position-x: 0;
+    }
+    100% {
+        background-position-x: -250rem;
+    }
+}
+
+.wave:nth-child(1) {
+    opacity: 0.9;
+}
+
+.wave:nth-child(2) {
+    opacity: 0.5;
+    animation-delay: 0.2s;
+    animation-direction: reverse;
+}
+
+.wave:nth-child(3) {
+    opacity: 0.7;
+    animation-delay: 5s;
+}
+
+.footer-content {
+    margin-top: 20px;
+    margin-bottom: 80px;
+
+}
+
+.footer-content h2 {
+    margin-top: 0;
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #1c88d0;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: blue;
 }
 
 /* ======= Dynamic Buttons with Loading Effect ======= */
