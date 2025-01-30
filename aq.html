@@ -6,6 +6,7 @@
     <title>Delhi AQI Dashboard</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css">
     <style>
         /* Styles for the dashboard */
@@ -20,6 +21,166 @@
             background: #f5f6fa;
         }
 
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --dark: #2F2E41;
+        }
+
+        .navbar {
+            min-height: 70px;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar.scrolled {
+            background: var(--dark);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar.scrolled .nav-link {
+            color: white !important;
+        }
+
+        .navbar-brand {
+            font-size: 2rem;
+            font-weight: 800;
+            position: relative;
+            color: var(--primary) !important;
+        }
+
+        .navbar-brand::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            bottom: 5px;
+            right: -8px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark) !important;
+            margin: 0 10px;
+            padding: 10px !important;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            transition: all 0.4s ease;
+            z-index: -1;
+            opacity: 0.1;
+            border-radius: 25px;
+        }
+
+        .nav-link:hover::before {
+            left: 0;
+        }
+
+        .nav-link:hover {
+            transform: translateY(-2px);
+            color: var(--primary) !important;
+        }
+
+        .nav-cta {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            border-radius: 25px;
+            color: white !important;
+            padding: 10px 25px !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            transition: all 0.4s ease;
+            z-index: -1;
+        }
+
+        .nav-cta:hover::before {
+            left: 0;
+        }
+
+        .nav-cta:hover {
+            color: white !important;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler span {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            left: 0;
+        }
+
+        .navbar-toggler span:nth-child(1) { top: 0; }
+        .navbar-toggler span:nth-child(2) { top: 9px; }
+        .navbar-toggler span:nth-child(3) { top: 18px; }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 9px;
+        }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: 9px;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: white;
+                border-radius: 15px;
+                margin-top: 15px;
+                padding: 20px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-link {
+                margin: 8px 0;
+            }
+        }
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -32,6 +193,7 @@
             padding: 25px;
             border-radius: 15px;
             margin-bottom: 25px;
+            margin-top: 80px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
@@ -245,6 +407,35 @@
     </style>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">AIR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">AQI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">EcoTracker</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Assessment</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-cta" href="#">Community</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <div class="header">
             <h1>Delhi Air Quality Index</h1>
@@ -363,6 +554,8 @@
             <p>&copy; 2025 Your Company. All rights reserved.</p>
         </div>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
 
     <script>
         const API_KEY = 'fcf3b5afa9195788b0bb746d4b614410'; // Replace with your actual API key
@@ -593,6 +786,25 @@
         setInterval(updateAQIData, 1800000);
         setInterval(updateWeatherData, 1800000);
         setInterval(updatePredictions, 1800000);
+
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
     </script>
 </body>
 </html>
