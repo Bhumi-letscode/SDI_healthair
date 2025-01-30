@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(9, 56, 121);
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            width: 800px;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            transform-style: preserve-3d;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .step {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-next {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-back {
+            background-color: #6c757d;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="card" id="formCard">
+            <div class="step active" id="step1">
+                <h2>Industry Information</h2>
+                <label for="industry">Industry Type</label>
+                <select id="industry">
+                    <option value="">Select Industry</option>
+                    <option value="Manufacturing">Manufacturing</option>
+                    <option value="Construction">Construction</option>
+                    <option value="Mining">Mining</option>
+                    <option value="Chemical">Chemical</option>
+                </select>
+                <label for="location">Facility Location</label>
+                <input type="text" id="location" placeholder="Enter facility address">
+                <label for="requirements">Special Requirements</label>
+                <textarea id="requirements" rows="3" placeholder="Any specific concerns"></textarea>
+                <div class="btn-group">
+                    <button class="btn btn-next" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <div class="step" id="step2">
+                <h2>Select Dust Collector</h2>
+                <label>Choose a Type</label>
+                <select id="collector">
+                    <option value="Baghouse">Baghouse Collector</option>
+                    <option value="Cartridge">Cartridge Collector</option>
+                    <option value="Cyclone">Cyclone Separator</option>
+                    <option value="Scrubber">Wet Scrubber</option>
+                </select>
+                <div class="btn-group">
+                    <button class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button class="btn btn-next" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <div class="step" id="step3">
+                <h2>Schedule Installation</h2>
+                <label for="date">Installation Date</label>
+                <input type="date" id="date">
+                <label>Available Time Slots</label>
+                <select id="time">
+                    <option value="9:00 AM">9:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                </select>
+                <div class="btn-group">
+                    <button class="btn btn-back" onclick="prevStep()">Back</button>
+                    <button class="btn btn-next" onclick="nextStep()">Next</button>
+                </div>
+            </div>
+
+            <div class="step" id="step4">
+                <h2>Booking Confirmation</h2>
+                <p><strong>Industry Type:</strong> <span id="summaryIndustry"></span></p>
+                <p><strong>Collector Type:</strong> <span id="summaryCollector"></span></p>
+                <p><strong>Installation Date:</strong> <span id="summaryDate"></span></p>
+                <p><strong>Time Slot:</strong> <span id="summaryTime"></span></p>
+                <p>Your booking has been confirmed! You will receive an email with details.</p>
+                <div class="btn-group">
+                    <button class="btn btn-back" onclick="prevStep()">Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 4;
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep++;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                animateCard();
+            }
+
+            if (currentStep === 4) {
+                document.getElementById('summaryIndustry').textContent = document.getElementById('industry').value;
+                document.getElementById('summaryCollector').textContent = document.getElementById('collector').value;
+                document.getElementById('summaryDate').textContent = document.getElementById('date').value;
+                document.getElementById('summaryTime').textContent = document.getElementById('time').value;
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                document.getElementById(`step${currentStep}`).classList.remove('active');
+                currentStep--;
+                document.getElementById(`step${currentStep}`).classList.add('active');
+                animateCard();
+            }
+        }
+
+        function animateCard() {
+            const card = document.getElementById('formCard');
+            card.style.transform = "rotateY(10deg)";
+            setTimeout(() => {
+                card.style.transform = "rotateY(0deg)";
+            }, 300);
+        }
+    </script>
+
+</body>
+
+</html>
