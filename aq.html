@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delhi AQI Dashboard</title>
+    <title>AIR</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -149,9 +150,17 @@
             left: 0;
         }
 
-        .navbar-toggler span:nth-child(1) { top: 0; }
-        .navbar-toggler span:nth-child(2) { top: 9px; }
-        .navbar-toggler span:nth-child(3) { top: 18px; }
+        .navbar-toggler span:nth-child(1) {
+            top: 0;
+        }
+
+        .navbar-toggler span:nth-child(2) {
+            top: 9px;
+        }
+
+        .navbar-toggler span:nth-child(3) {
+            top: 18px;
+        }
 
         .navbar-toggler[aria-expanded="true"] span:nth-child(1) {
             transform: rotate(45deg);
@@ -175,7 +184,7 @@
                 padding: 20px;
                 box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             }
-            
+
             .nav-link {
                 margin: 8px 0;
             }
@@ -194,7 +203,7 @@
             border-radius: 15px;
             margin-bottom: 25px;
             margin-top: 80px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
@@ -213,7 +222,7 @@
             background: white;
             border-radius: 15px;
             padding: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -221,7 +230,7 @@
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
         }
 
         .aqi-value {
@@ -242,11 +251,30 @@
             transition: all 0.3s ease;
         }
 
-        .category-good { background: #c8e6c9; color: #2e7d32; }
-        .category-moderate { background: #fff3e0; color: #f57c00; }
-        .category-poor { background: #ffcdd2; color: #c62828; }
-        .category-very-poor { background: #e1bee7; color: #6a1b9a; }
-        .category-severe { background: #ffebee; color: #b71c1c; }
+        .category-good {
+            background: #c8e6c9;
+            color: #2e7d32;
+        }
+
+        .category-moderate {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .category-poor {
+            background: #ffcdd2;
+            color: #c62828;
+        }
+
+        .category-very-poor {
+            background: #e1bee7;
+            color: #6a1b9a;
+        }
+
+        .category-severe {
+            background: #ffebee;
+            color: #b71c1c;
+        }
 
         .pollutant-grid {
             display: grid;
@@ -274,7 +302,7 @@
             height: 400px;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .chart-container {
@@ -312,11 +340,19 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
-        
+
         /* Specific styles for prediction cards */
         .prediction-card {
             background: #f8f9fa;
@@ -333,6 +369,7 @@
             color: #1a237e;
             transition: all 0.3s ease;
         }
+
         .container2 {
             position: relative;
             height: 1vh;
@@ -340,7 +377,7 @@
 
         footer {
             position: relative;
-            background-color:#FFFFFF;
+            background-color: #FFFFFF;
             padding: 50px 20px;
             text-align: center;
         }
@@ -360,6 +397,7 @@
             0% {
                 background-position-x: 0;
             }
+
             100% {
                 background-position-x: -250rem;
             }
@@ -403,9 +441,9 @@
         .footer-links a:hover {
             color: blue;
         }
-
     </style>
 </head>
+
 <body>
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -561,23 +599,23 @@
 
         // AQI monitoring stations in Delhi
         const stations = [
-    { name: 'ITO', lat: 28.6289, lon: 77.2404, aqi: 0 },
-    { name: 'Anand Vihar', lat: 28.6471, lon: 77.3161, aqi: 0 },
-    { name: 'RK Puram', lat: 28.5651, lon: 77.1856, aqi: 0 },
-    { name: 'Dwarka', lat: 28.5923, lon: 77.0438, aqi: 0 },
-    { name: 'Punjabi Bagh', lat: 28.6724, lon: 77.1300, aqi: 0 },
-    { name: 'Lodhi Road', lat: 28.5933, lon: 77.2154, aqi: 0 },
-    { name: 'Pusa', lat: 28.6365, lon: 77.1577, aqi: 0 },
-    { name: 'Ashok Vihar', lat: 28.6911, lon: 77.1706, aqi: 0 },
-    { name: 'Okhla', lat: 28.5375, lon: 77.2680, aqi: 0 },
-    { name: 'Siri Fort', lat: 28.5538, lon: 77.2227, aqi: 0 },
-    { name: 'Mandir Marg', lat: 28.6329, lon: 77.1990, aqi: 0 },
-    { name: 'Mundka', lat: 28.6926, lon: 77.0302, aqi: 0 },
-    { name: 'Narela', lat: 28.8429, lon: 77.1000, aqi: 0 },
-    { name: 'Rohini', lat: 28.7437, lon: 77.0673, aqi: 0 },
-    { name: 'Sonia Vihar', lat: 28.7230, lon: 77.2676, aqi: 0 },
-    { name: 'Najafgarh', lat: 28.6094, lon: 76.9798, aqi: 0 }
-];
+            { name: 'ITO', lat: 28.6289, lon: 77.2404, aqi: 0 },
+            { name: 'Anand Vihar', lat: 28.6471, lon: 77.3161, aqi: 0 },
+            { name: 'RK Puram', lat: 28.5651, lon: 77.1856, aqi: 0 },
+            { name: 'Dwarka', lat: 28.5923, lon: 77.0438, aqi: 0 },
+            { name: 'Punjabi Bagh', lat: 28.6724, lon: 77.1300, aqi: 0 },
+            { name: 'Lodhi Road', lat: 28.5933, lon: 77.2154, aqi: 0 },
+            { name: 'Pusa', lat: 28.6365, lon: 77.1577, aqi: 0 },
+            { name: 'Ashok Vihar', lat: 28.6911, lon: 77.1706, aqi: 0 },
+            { name: 'Okhla', lat: 28.5375, lon: 77.2680, aqi: 0 },
+            { name: 'Siri Fort', lat: 28.5538, lon: 77.2227, aqi: 0 },
+            { name: 'Mandir Marg', lat: 28.6329, lon: 77.1990, aqi: 0 },
+            { name: 'Mundka', lat: 28.6926, lon: 77.0302, aqi: 0 },
+            { name: 'Narela', lat: 28.8429, lon: 77.1000, aqi: 0 },
+            { name: 'Rohini', lat: 28.7437, lon: 77.0673, aqi: 0 },
+            { name: 'Sonia Vihar', lat: 28.7230, lon: 77.2676, aqi: 0 },
+            { name: 'Najafgarh', lat: 28.6094, lon: 76.9798, aqi: 0 }
+        ];
 
 
         // Add markers for each station
@@ -711,7 +749,7 @@
         function updateStationAQI() {
             stations.forEach(station => {
                 const stationAQI = Math.round(
-                    parseInt(document.getElementById('currentAQI').textContent) * 
+                    parseInt(document.getElementById('currentAQI').textContent) *
                     (1 + (Math.random() * 0.4 - 0.2))
                 );
                 station.marker.setPopupContent(
@@ -740,10 +778,10 @@
             if (!isNaN(currentAQI)) {
                 const weekPrediction = Math.round(currentAQI * (1 + (Math.random() * 0.2 - 0.1)));
                 const monthPrediction = Math.round(currentAQI * (1 + (Math.random() * 0.3 - 0.15)));
-                
+
                 document.getElementById('weekPrediction').textContent = weekPrediction;
                 document.getElementById('monthPrediction').textContent = monthPrediction;
-                
+
                 const date = new Date();
                 const month = date.getMonth();
                 let trend;
@@ -778,7 +816,7 @@
         setInterval(updateWeatherData, 1800000);
         setInterval(updatePredictions, 1800000);
 
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
@@ -798,4 +836,5 @@
         });
     </script>
 </body>
+
 </html>

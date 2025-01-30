@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoEngage</title>
+    <title>AIR</title>
     <style>
         /* General Reset */
-        body, h1, h2, p, ul, li {
+        body,
+        h1,
+        h2,
+        p,
+        ul,
+        li {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -37,8 +43,8 @@
             padding: 0;
         }
 
-        #sidebar ul li a{
-            color:#ffffff;
+        #sidebar ul li a {
+            color: #ffffff;
             text-decoration: none;
         }
 
@@ -61,7 +67,8 @@
             flex-direction: column;
             padding: 20px;
             height: 100vh;
-            overflow-y: auto; /* Makes the white area scrollable */
+            overflow-y: auto;
+            /* Makes the white area scrollable */
         }
 
         header {
@@ -142,9 +149,9 @@
         .count {
             font-weight: bold;
         }
-
     </style>
 </head>
+
 <body>
     <!-- Sidebar Navigation -->
     <nav id="sidebar">
@@ -172,13 +179,15 @@
         <section id="posts">
             <article class="post">
                 <h2>AQ Impact @aq_impact | 12h ago</h2>
-                <p>Happy <strong>#NationalGardeningDay</strong>! Enjoy planting, pruning, or pottering in the fresh air!</p>
+                <p>Happy <strong>#NationalGardeningDay</strong>! Enjoy planting, pruning, or pottering in the fresh air!
+                </p>
                 <img src="/assets/images/Gardening.png" alt="Gardening Image" style="width: 300px; height: auto;">
             </article>
 
             <article class="post">
                 <h2>Clear Skies Hub @clear_skies_hub | 10h ago</h2>
-                <p>Air pollution isn’t just a problem for the environment, it's a problem for our health too 🌍💨 Let's breathe cleaner, live better. <strong>#ActNow #CleanAir</strong></p>
+                <p>Air pollution isn’t just a problem for the environment, it's a problem for our health too 🌍💨 Let's
+                    breathe cleaner, live better. <strong>#ActNow #CleanAir</strong></p>
             </article>
 
             <!-- Poll Section -->
@@ -186,19 +195,23 @@
                 <h2>What's your preferred eco-friendly activity to reduce air pollution?</h2>
                 <ul>
                     <li class="option">
-                        <label><input type="radio" name="eco_activity" data-option="tree" onclick="updatePoll()"> Planting trees 🌱</label>
+                        <label><input type="radio" name="eco_activity" data-option="tree" onclick="updatePoll()">
+                            Planting trees 🌱</label>
                         <span id="tree_count" class="count">0</span>
                     </li>
                     <li class="option">
-                        <label><input type="radio" name="eco_activity" data-option="walk" onclick="updatePoll()"> Walking or biking 🚶‍♀️🚴‍♂️</label>
+                        <label><input type="radio" name="eco_activity" data-option="walk" onclick="updatePoll()">
+                            Walking or biking 🚶‍♀️🚴‍♂️</label>
                         <span id="walk_count" class="count">0</span>
                     </li>
                     <li class="option">
-                        <label><input type="radio" name="eco_activity" data-option="waste" onclick="updatePoll()"> Reducing waste ♻️</label>
+                        <label><input type="radio" name="eco_activity" data-option="waste" onclick="updatePoll()">
+                            Reducing waste ♻️</label>
                         <span id="waste_count" class="count">0</span>
                     </li>
                     <li class="option">
-                        <label><input type="radio" name="eco_activity" data-option="transport" onclick="updatePoll()"> Using public transport 🚍</label>
+                        <label><input type="radio" name="eco_activity" data-option="transport" onclick="updatePoll()">
+                            Using public transport 🚍</label>
                         <span id="transport_count" class="count">0</span>
                     </li>
                 </ul>
@@ -221,7 +234,7 @@
         function updatePoll() {
             // Get the selected option
             const selectedOption = document.querySelector('input[name="eco_activity"]:checked').getAttribute('data-option');
-            
+
             // Increment the vote count for the selected option
             pollData[selectedOption]++;
 
@@ -233,4 +246,5 @@
         }
     </script>
 </body>
+
 </html>

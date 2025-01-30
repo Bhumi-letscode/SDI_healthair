@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Air Pollution Health Records</title>
+    <title>AIR</title>
     <style>
         * {
             margin: 0;
@@ -13,8 +14,8 @@
         }
 
         .navbar {
-            background: rgb(9,56,121);
-            background: linear-gradient(90deg, rgba(9,56,121,1) 23%, rgba(0,211,255,0.8576024159663865) 100%);
+            background: rgb(9, 56, 121);
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
             padding: 1rem 2rem;
             color: white;
             display: flex;
@@ -91,43 +92,43 @@
             margin: 1rem 0;
         }
 
-       
-           
 
-.button-36 {
-    background: rgb(9,56,121);
-    background: linear-gradient(90deg, rgba(9,56,121,1) 23%, rgba(0,211,255,0.8576024159663865) 100%);
-  border-radius: 8px;
-  border-style: none;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex-shrink: 0;
-  font-family: "Inter UI","SF Pro Display",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  height: 4rem;
-  padding: 10px 20px;
-  margin-bottom: 1rem;
-  text-align: center;
-  text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
-  transition: all .5s;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
 
-.button-36:hover {
-  box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
-  transition-duration: .1s;
-}
 
-@media (min-width: 768px) {
-  .button-36 {
-    padding: 0 2.6rem;
-  }
-}
-            
+        .button-36 {
+            background: rgb(9, 56, 121);
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+            border-radius: 8px;
+            border-style: none;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            flex-shrink: 0;
+            font-family: "Inter UI", "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            font-weight: 500;
+            height: 4rem;
+            padding: 10px 20px;
+            margin-bottom: 1rem;
+            text-align: center;
+            text-shadow: rgba(0, 0, 0, 0.25) 0 3px 8px;
+            transition: all .5s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        .button-36:hover {
+            box-shadow: rgba(80, 63, 205, 0.5) 0 1px 30px;
+            transition-duration: .1s;
+        }
+
+        @media (min-width: 768px) {
+            .button-36 {
+                padding: 0 2.6rem;
+            }
+        }
+
 
         .stats-panel {
             background: #f8f9fa;
@@ -158,7 +159,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .modal-content {
@@ -186,6 +187,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
         .container2 {
             position: relative;
             height: 1vh;
@@ -213,6 +215,7 @@
             0% {
                 background-position-x: 0;
             }
+
             100% {
                 background-position-x: -250rem;
             }
@@ -258,6 +261,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <h1>AIR </h1>
@@ -272,7 +276,7 @@
     <div class="container">
         <div id="alertsSection"></div>
 
-        <button class="button-36"  onclick="openModal()">Add New Record</button>
+        <button class="button-36" onclick="openModal()">Add New Record</button>
 
         <div class="stats-panel">
             <h2>Weekly Statistics</h2>
@@ -439,9 +443,9 @@
         }
 
         // Handle form submission
-        document.getElementById('recordForm').addEventListener('submit', function(e) {
+        document.getElementById('recordForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const newRecord = {
                 date: document.getElementById('recordDate').value,
                 aqi: parseInt(document.getElementById('aqiLevel').value),
@@ -451,7 +455,7 @@
             };
 
             healthRecords.push(newRecord);
-            
+
             // Check if consultation needed
             if (newRecord.aqi > 150 || newRecord.symptoms.length > 2) {
                 alerts.push({
@@ -474,4 +478,5 @@
         updateStats();
     </script>
 </body>
+
 </html>
