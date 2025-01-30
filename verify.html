@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Company Registration</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.857) 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 15px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+        }
+
+        .navbar ul li a:hover {
+            color: black;
+        }
+
+        /* Registration Container */
+        .container {
+            width: 800px;
+            background: hsla(212, 46%, 39%, 0.459);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        h1 {
+            margin-bottom: 15px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+        }
+
+        .step-circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .step.active .step-circle {
+            background: black;
+            color: white;
+        }
+
+        .line {
+            width: 50px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Form Sections */
+        .form-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .form-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-weight: bold;
+            color: white;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+        }
+
+        /* Buttons */
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buttons .next {
+            background: rgb(140, 177, 233);
+            color: white;
+        }
+
+        .buttons .prev {
+            background: rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+
+        .buttons .finish {
+            background: #00c853;
+            color: white;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Company Registration</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Form -->
+    <div class="container">
+        <h1>Register Your Company</h1>
+
+        <div class="step-indicator">
+            <div class="step active">
+                <div class="step-circle">1</div><span class="line"></span>
+            </div>
+            <div class="step">
+                <div class="step-circle">2</div><span class="line"></span>
+            </div>
+            <div class="step">
+                <div class="step-circle">3</div>
+            </div>
+        </div>
+
+        <div class="form-section active" id="step1">
+            <div class="input-group"><label>Company Name</label><input type="text"></div>
+            <div class="input-group"><label>Industry Type</label><input type="text"></div>
+        </div>
+
+        <div class="form-section" id="step2">
+            <h3>Upload Documents</h3>
+            <div class="input-group"><button>Upload File</button></div>
+        </div>
+
+        <div class="form-section" id="step3">
+            <h3>Confirm & Submit</h3>
+            <input type="checkbox"> I accept the terms & conditions.
+        </div>
+
+        <div class="buttons">
+            <button class="prev" onclick="prevStep()" style="display: none;">Back</button>
+            <button class="next" onclick="nextStep()">Next</button>
+            <button class="finish" onclick="finishForm()">Finish</button>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function showStep(step) {
+            document.querySelectorAll('.form-section').forEach((section, index) => {
+                section.classList.toggle('active', index + 1 === step);
+            });
+
+            document.querySelectorAll('.step').forEach((stepEl, index) => {
+                stepEl.classList.toggle('active', index + 1 <= step);
+            });
+
+            document.querySelector('.prev').style.display = step > 1 ? 'block' : 'none';
+            document.querySelector('.next').style.display = step < 3 ? 'block' : 'none';
+            document.querySelector('.finish').style.display = step === 3 ? 'block' : 'none';
+        }
+
+        function nextStep() {
+            if (currentStep < 3) {
+                currentStep++;
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+            }
+        }
+
+        function finishForm() {
+            window.location.href = "thanku.html"; // Redirects to success page
+        }
+    </script>
+
+</body>
+
+</html>
