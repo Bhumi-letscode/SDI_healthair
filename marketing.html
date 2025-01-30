@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoClean - Air Quality Solutions</title>
+    <title>AIR</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.7.2/font/bootstrap-icons.min.css"
+        rel="stylesheet">
     <style>
         :root {
-            --primary-color:#4392e7;
-            --secondary-color:#007BFF;
+            --primary-color: #4392e7;
+            --secondary-color: #007BFF;
         }
 
         /* Hero Section */
         .hero-section {
             height: 100vh;
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-                        url('./assets/images/market-bg.jpg');
+                url('./assets/images/market-bg.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -32,7 +34,7 @@
 
         .navbar.scrolled {
             background: rgba(255, 255, 255, 0.95) !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .navbar.scrolled .nav-link {
@@ -86,7 +88,7 @@
             padding: 1rem 0;
             margin-bottom: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         .category-list {
@@ -124,13 +126,13 @@
             background: white;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .product-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
         }
 
         .product-image-container {
@@ -160,7 +162,7 @@
             position: absolute;
             bottom: 1rem;
             right: 1rem;
-            background: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
             padding: 0.25rem 1rem;
             border-radius: 20px;
@@ -207,7 +209,7 @@
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 25px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
         }
 
@@ -219,7 +221,7 @@
             .category-list {
                 flex-wrap: wrap;
             }
-            
+
             .products-grid {
                 grid-template-columns: 1fr;
             }
@@ -263,7 +265,7 @@
 
         footer {
             position: relative;
-            background-color:#FFFFFF;
+            background-color: #FFFFFF;
             padding: 50px 20px;
             text-align: center;
         }
@@ -283,6 +285,7 @@
             0% {
                 background-position-x: 0;
             }
+
             100% {
                 background-position-x: -250rem;
             }
@@ -345,6 +348,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Main Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -373,7 +377,7 @@
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
                 </ul>
-                
+
             </div>
         </div>
     </nav>
@@ -413,134 +417,135 @@
 
 
     <!-- Donation Section -->
-    <section id="donation" class="py-5 bg-light">         
-        <div class="container">             
-            <div class="section-header">                 
-                <h2>Support Our Cause</h2>                 
-                <p>Help us create a cleaner environment for future generations</p>             
-            </div>             
-            <div class="row">                 
-                <div class="col-md-8 mx-auto">                     
-                    <div class="donation-card">                         
-                        <h4 class="mb-4">Plant Trees Initiative</h4>                         
-                        <div class="progress donation-progress mb-4">                             
-                            <div class="progress-bar bg-success text-white" style="width: 75%">                                 
-                                Rs.15,000                         
-                            </div>                         
-                        </div>                         
-                        <div class="row g-3 mb-4">                             
-                            <div class="col-md-4">                                 
-                                <button class="btn btn-light w-100" onclick="donate(100)">Rs.100</button>                             
-                            </div>                             
-                            <div class="col-md-4">                                 
-                                <button class="btn btn-light w-100" onclick="donate(200)">Rs.200</button>                             
-                            </div>                             
-                            <div class="col-md-4">                                 
-                                <button class="btn btn-light w-100" onclick="donate(500)">Rs.500</button>                             
-                            </div>                         
-                        </div>                         
-                        <div class="custom-donation">                             
-                            <input type="number" id="customAmount" class="form-control mb-3" placeholder="Enter custom amount">                             
-                            <button class="btn btn-primary w-100" onclick="donateCustom()">Donate Now</button>                         
-                        </div>                     
-                    </div>                 
-                </div>             
-            </div>         
-        </div> 
-    </section>  
+    <section id="donation" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Support Our Cause</h2>
+                <p>Help us create a cleaner environment for future generations</p>
+            </div>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="donation-card">
+                        <h4 class="mb-4">Plant Trees Initiative</h4>
+                        <div class="progress donation-progress mb-4">
+                            <div class="progress-bar bg-success text-white" style="width: 75%">
+                                Rs.15,000
+                            </div>
+                        </div>
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-4">
+                                <button class="btn btn-light w-100" onclick="donate(100)">Rs.100</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-light w-100" onclick="donate(200)">Rs.200</button>
+                            </div>
+                            <div class="col-md-4">
+                                <button class="btn btn-light w-100" onclick="donate(500)">Rs.500</button>
+                            </div>
+                        </div>
+                        <div class="custom-donation">
+                            <input type="number" id="customAmount" class="form-control mb-3"
+                                placeholder="Enter custom amount">
+                            <button class="btn btn-primary w-100" onclick="donateCustom()">Donate Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-</div>
-<footer>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="wave"></div>
-    <div class="footer-content">
-        <h2>Stay Connected</h2>
-        <p>Follow us on social media and stay updated with our latest news.</p>
-        <div class="footer-links">
-            <a href="#">Facebook</a>
-            <a href="#">Twitter</a>
-            <a href="#">Instagram</a>
-            <a href="#">LinkedIn</a>
-        </div>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
     </div>
-</footer>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Navbar scroll effect
-        window.addEventListener("scroll", function () {
-            let navbar = document.querySelector(".navbar");
-            if (window.scrollY > 50) {
-                navbar.classList.add("scrolled");
-            } else {
-                navbar.classList.remove("scrolled");
-            }
-        });
-
-        // Smooth scrolling for navigation links
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.addEventListener("click", function (e) {
-                if (this.hash !== "") {
-                    e.preventDefault();
-                    let target = document.querySelector(this.hash);
-                    if (target) {
-                        window.scrollTo({
-                            top: target.offsetTop - 50,
-                            behavior: "smooth"
-                        });
-                    }
+    <footer>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="footer-content">
+            <h2>Stay Connected</h2>
+            <p>Follow us on social media and stay updated with our latest news.</p>
+            <div class="footer-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+            <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Navbar scroll effect
+            window.addEventListener("scroll", function () {
+                let navbar = document.querySelector(".navbar");
+                if (window.scrollY > 50) {
+                    navbar.classList.add("scrolled");
+                } else {
+                    navbar.classList.remove("scrolled");
                 }
             });
-        });
 
-        // Product data
-        const products = {
-            'air-purifiers': [
-                {
-                    id: 1,
-                    name: 'Premium Air Purifier',
-                    description: 'Advanced HEPA filtration with smart controls',
-                    price: 'Rs.2999',
-                    image: './assets/images/Air-Purifier.avif',
-                    featured: true
-                },
-                {
-                    id: 2,
-                    name: 'Smart Air Purifier Pro',
-                    description: 'IoT-enabled purifier with mobile app control',
-                    price: 'Rs.4999',
-                    image: './assets/images/purifier.png',
-                    featured: false
-                }
-            ],
-            'masks': [
-                {
-                    id: 3,
-                    name: 'N95 Smart Mask',
-                    description: 'Reusable mask with PM2.5 filter',
-                    price: 'Rs.50',
-                    image: './assets/images/mask.webp',
-                    featured: false
-                }
-            ],
-            'vehicles': [
-                {
-                    id: 4,
-                    name: 'Electric Scooter',
-                    description: 'Eco-friendly urban transportation',
-                    price: 'Rs.89999',
-                    image: './assets/images/scooter.jpg',
-                    featured: true
-                }
-            ]
-        };
+            // Smooth scrolling for navigation links
+            document.querySelectorAll(".nav-link").forEach(link => {
+                link.addEventListener("click", function (e) {
+                    if (this.hash !== "") {
+                        e.preventDefault();
+                        let target = document.querySelector(this.hash);
+                        if (target) {
+                            window.scrollTo({
+                                top: target.offsetTop - 50,
+                                behavior: "smooth"
+                            });
+                        }
+                    }
+                });
+            });
 
-        let cartItems = {};
+            // Product data
+            const products = {
+                'air-purifiers': [
+                    {
+                        id: 1,
+                        name: 'Premium Air Purifier',
+                        description: 'Advanced HEPA filtration with smart controls',
+                        price: 'Rs.2999',
+                        image: './assets/images/Air-Purifier.avif',
+                        featured: true
+                    },
+                    {
+                        id: 2,
+                        name: 'Smart Air Purifier Pro',
+                        description: 'IoT-enabled purifier with mobile app control',
+                        price: 'Rs.4999',
+                        image: './assets/images/purifier.png',
+                        featured: false
+                    }
+                ],
+                'masks': [
+                    {
+                        id: 3,
+                        name: 'N95 Smart Mask',
+                        description: 'Reusable mask with PM2.5 filter',
+                        price: 'Rs.50',
+                        image: './assets/images/mask.webp',
+                        featured: false
+                    }
+                ],
+                'vehicles': [
+                    {
+                        id: 4,
+                        name: 'Electric Scooter',
+                        description: 'Eco-friendly urban transportation',
+                        price: 'Rs.89999',
+                        image: './assets/images/scooter.jpg',
+                        featured: true
+                    }
+                ]
+            };
 
-        function createProductCard(product) {
-            return `
+            let cartItems = {};
+
+            function createProductCard(product) {
+                return `
                 <div class="product-card" data-product-id="${product.id}">
                     <div class="product-image-container">
                         <img src="${product.image}" alt="${product.name}" class="product-image">
@@ -561,68 +566,68 @@
                     </div>
                 </div>
             `;
+            }
+
+            function displayProducts(category) {
+                const productsGrid = document.querySelector('.products-grid');
+                productsGrid.innerHTML = products[category]
+                    .map(product => createProductCard(product))
+                    .join('');
+            }
+
+            function updateCartBadge() {
+                const cartBadge = document.querySelector('.cart-badge');
+                const cartCount = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+
+                if (cartCount > 0) {
+                    cartBadge.classList.remove('hidden');
+                    cartBadge.innerHTML = `Cart Items: <span class="cart-count">${cartCount}</span>`;
+                } else {
+                    cartBadge.classList.add('hidden');
+                }
+            }
+
+            function addToCart(productId) {
+                cartItems[productId] = (cartItems[productId] || 0) + 1;
+                updateCartBadge();
+
+                const button = document.querySelector(`[data-product-id="${productId}"] .add-to-cart-btn`);
+                const originalText = button.innerHTML;
+                button.innerHTML = 'Added to Cart!';
+                setTimeout(() => button.innerHTML = originalText, 1500);
+            }
+
+            // Event listeners for category buttons
+            document.querySelectorAll('.category-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    displayProducts(this.getAttribute('data-category'));
+                });
+            });
+
+            // Load the default category (Air Purifiers) on page load
+            displayProducts('air-purifiers');
+
+        });
+
+        function donate(amount) {
+            alert("Thank you for donating Rs." + amount);
+            // Here, you can integrate payment gateway logic
         }
 
-        function displayProducts(category) {
-            const productsGrid = document.querySelector('.products-grid');
-            productsGrid.innerHTML = products[category]
-                .map(product => createProductCard(product))
-                .join('');
-        }
-
-        function updateCartBadge() {
-            const cartBadge = document.querySelector('.cart-badge');
-            const cartCount = Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
-            
-            if (cartCount > 0) {
-                cartBadge.classList.remove('hidden');
-                cartBadge.innerHTML = `Cart Items: <span class="cart-count">${cartCount}</span>`;
+        function donateCustom() {
+            let amount = document.getElementById("customAmount").value;
+            if (amount && amount > 0) {
+                alert("Thank you for donating Rs." + amount);
+                // Here, you can integrate payment gateway logic
             } else {
-                cartBadge.classList.add('hidden');
+                alert("Please enter a valid donation amount.");
             }
         }
 
-        function addToCart(productId) {
-            cartItems[productId] = (cartItems[productId] || 0) + 1;
-            updateCartBadge();
-            
-            const button = document.querySelector(`[data-product-id="${productId}"] .add-to-cart-btn`);
-            const originalText = button.innerHTML;
-            button.innerHTML = 'Added to Cart!';
-            setTimeout(() => button.innerHTML = originalText, 1500);
-        }
 
-        // Event listeners for category buttons
-        document.querySelectorAll('.category-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                document.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
-                displayProducts(this.getAttribute('data-category'));
-            });
-        });
-
-        // Load the default category (Air Purifiers) on page load
-        displayProducts('air-purifiers');
-
-    });
-
-    function donate(amount) {
-        alert("Thank you for donating Rs." + amount);
-        // Here, you can integrate payment gateway logic
-    }
-
-    function donateCustom() {
-        let amount = document.getElementById("customAmount").value;
-        if (amount && amount > 0) {
-            alert("Thank you for donating Rs." + amount);
-            // Here, you can integrate payment gateway logic
-        } else {
-            alert("Please enter a valid donation amount.");
-        }
-    }
-
-    
-</script>
+    </script>
 </body>
 
 </html>

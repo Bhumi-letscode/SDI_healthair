@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eco Points Dashboard</title>
+    <title>AIR</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
     <style>
         * {
@@ -28,7 +29,7 @@
             right: 0;
             background: white;
             padding: 1rem;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             z-index: 1000;
             display: flex;
             justify-content: space-between;
@@ -59,7 +60,7 @@
 
         .nav-link:hover {
             background: #e8f5e9;
-            color:#007BFF;
+            color: #007BFF;
         }
 
         .container {
@@ -69,7 +70,7 @@
         }
 
         .points-banner {
-            background: linear-gradient(135deg,#007BFF, #8bc3ff);
+            background: linear-gradient(135deg, #007BFF, #8bc3ff);
             color: white;
             padding: 20px;
             border-radius: 10px;
@@ -103,17 +104,18 @@
             background: white;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             animation: fadeIn 1s ease-out;
         }
 
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .action-item, .reward-item {
+        .action-item,
+        .reward-item {
             background: #f8f9fa;
             border-radius: 8px;
             padding: 15px;
@@ -124,12 +126,13 @@
             transition: transform 0.3s ease;
         }
 
-        .action-item:hover, .reward-item:hover {
+        .action-item:hover,
+        .reward-item:hover {
             transform: translateX(5px);
         }
 
         .points-button {
-            background:  #007BFF;
+            background: #007BFF;
             color: white;
             border: none;
             padding: 8px 16px;
@@ -152,7 +155,7 @@
             left: 50%;
             width: 5px;
             height: 5px;
-            background: rgba(255,255,255,.5);
+            background: rgba(255, 255, 255, .5);
             opacity: 0;
             border-radius: 100%;
             transform: scale(1, 1) translate(-50%);
@@ -174,139 +177,143 @@
         .leaderboard-item:hover {
             background-color: #f5f5f5;
         }
-        
-/* CSS */
-.button-20 {
-  touch-action: manipulation;
-  -webkit-appearance: none;
-  appearance: none;
-  vertical-align: middle;
-  color: inherit;
-  font: inherit;
-  background: transparent;
-  padding: 0;
-  margin: 0;
-  border-radius: 0;
-  text-align: inherit;
-  text-transform: inherit;
-  border-style: solid;
-  border-width: 0;
-  box-sizing: border-box;
 
-  border: 1px solid  #007BFF;
-  border-radius: 8px;
-  padding: 12px 16px;
-  background-color:  #007BFF;
-  background-image: radial-gradient(75% 25% at 50% 95%, rgba(255, 255, 255, 0.2), transparent);
-  color: #fafafa;
-  box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1);
-  transition-property: border-color, transform, background-color;
-  transition-duration: 0.2s;
-  transition-timing-function: cubic-bezier(0.55, 1, 0.15, 1);
-  will-change: transform;
-  cursor: pointer;
-}
+        /* CSS */
+        .button-20 {
+            touch-action: manipulation;
+            -webkit-appearance: none;
+            appearance: none;
+            vertical-align: middle;
+            color: inherit;
+            font: inherit;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+            border-radius: 0;
+            text-align: inherit;
+            text-transform: inherit;
+            border-style: solid;
+            border-width: 0;
+            box-sizing: border-box;
 
-.button-20:focus {
-  outline-style: solid;
-  outline-color: transparent;
-}
+            border: 1px solid #007BFF;
+            border-radius: 8px;
+            padding: 12px 16px;
+            background-color: #007BFF;
+            background-image: radial-gradient(75% 25% at 50% 95%, rgba(255, 255, 255, 0.2), transparent);
+            color: #fafafa;
+            box-shadow: inset 0 0 2px 1px rgba(255, 255, 255, 0.2), 0 1px 4px 1px rgba(0, 0, 0, 0.1);
+            transition-property: border-color, transform, background-color;
+            transition-duration: 0.2s;
+            transition-timing-function: cubic-bezier(0.55, 1, 0.15, 1);
+            will-change: transform;
+            cursor: pointer;
+        }
 
-@media (hover: hover) {
-  .button-20:hover {
-    border-color: #007BFF;
-    transform: scale(1.04);
-    background-color:  #203a57;
-  }
-}
-.button-20:focus-visible {
-  border-color:  #007BFF;
-  transform: scale(1.04);
-  background-color: #007BFF;
-  text-decoration-line: underline;
-  text-decoration-thickness: 0.0625em;
-  text-underline-offset: 0.125em;
-}
-.button-20:active {
-  border-color: #007BFF;
-  transform: scale(0.96);
-  background-color: #007BFF;
-}
+        .button-20:focus {
+            outline-style: solid;
+            outline-color: transparent;
+        }
 
-.container2 {
-    position: relative;
-    height: 10vh;
-}
+        @media (hover: hover) {
+            .button-20:hover {
+                border-color: #007BFF;
+                transform: scale(1.04);
+                background-color: #203a57;
+            }
+        }
 
-footer {
-    position: relative;
-    background-color: #ffffff;
-    padding: 50px 20px;
-    text-align: center;
-}
+        .button-20:focus-visible {
+            border-color: #007BFF;
+            transform: scale(1.04);
+            background-color: #007BFF;
+            text-decoration-line: underline;
+            text-decoration-thickness: 0.0625em;
+            text-underline-offset: 0.125em;
+        }
 
-.wave {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 120px;
-    width: 100%;
-    background: url('wave.png') repeat-x;
-    background-size: 250rem 30rem;
-    animation: animate 15s linear infinite;
-}
+        .button-20:active {
+            border-color: #007BFF;
+            transform: scale(0.96);
+            background-color: #007BFF;
+        }
 
-@keyframes animate {
-    0% {
-        background-position-x: 0;
-    }
-    100% {
-        background-position-x: -250rem;
-    }
-}
+        .container2 {
+            position: relative;
+            height: 10vh;
+        }
 
-.wave:nth-child(1) {
-    opacity: 0.9;
-}
+        footer {
+            position: relative;
+            background-color: #ffffff;
+            padding: 50px 20px;
+            text-align: center;
+        }
 
-.wave:nth-child(2) {
-    opacity: 0.5;
-    animation-delay: 0.2s;
-    animation-direction: reverse;
-}
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 120px;
+            width: 100%;
+            background: url('wave.png') repeat-x;
+            background-size: 250rem 30rem;
+            animation: animate 15s linear infinite;
+        }
 
-.wave:nth-child(3) {
-    opacity: 0.7;
-    animation-delay: 5s;
-}
+        @keyframes animate {
+            0% {
+                background-position-x: 0;
+            }
 
-.footer-content {
-    margin-top: 20px;
-    margin-bottom: 80px;
+            100% {
+                background-position-x: -250rem;
+            }
+        }
 
-}
+        .wave:nth-child(1) {
+            opacity: 0.9;
+        }
 
-.footer-content h2 {
-    margin-top: 0;
-}
+        .wave:nth-child(2) {
+            opacity: 0.5;
+            animation-delay: 0.2s;
+            animation-direction: reverse;
+        }
 
-.footer-links {
-    margin-top: 15px;
-}
+        .wave:nth-child(3) {
+            opacity: 0.7;
+            animation-delay: 5s;
+        }
 
-.footer-links a {
-    color: #007BFF;
-    margin: 0 10px;
-    text-decoration: none;
-}
+        .footer-content {
+            margin-top: 20px;
+            margin-bottom: 80px;
 
-.footer-links a:hover {
-    color: #fff;
-}
+        }
+
+        .footer-content h2 {
+            margin-top: 0;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #007BFF;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
     </style>
 </head>
+
 <body>
-    
+
     <nav class="navbar">
         <div class="nav-brand">
             🌿 EcoTracker
@@ -465,7 +472,7 @@ footer {
 
             // Update the leaderboard display
             leaderboardList.innerHTML = leaderboard
-                .map((user, index) => 
+                .map((user, index) =>
                     `<li class="leaderboard-item">
                         <span>${index + 1}. ${user.username}</span>
                         <span>${user.points} pts</span>
@@ -494,9 +501,9 @@ footer {
             pointsPopup.style.borderRadius = '10px';
             pointsPopup.style.animation = 'fadeIn 0.3s ease-out';
             pointsPopup.innerHTML = `+${amount} points!`;
-            
+
             document.body.appendChild(pointsPopup);
-            
+
             setTimeout(() => {
                 pointsPopup.style.animation = 'fadeOut 0.3s ease-out';
                 setTimeout(() => {
@@ -509,4 +516,5 @@ footer {
         updateLeaderboard();
     </script>
 </body>
+
 </html>

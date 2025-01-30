@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessment Tracker</title>
+    <title>AIR</title>
     <style>
         * {
             margin: 0;
@@ -16,6 +17,7 @@
             background: #f0f4f8;
             color: #2d3748;
         }
+
         .navbar {
             background: #4299e1;
             padding: 15px 20px;
@@ -65,8 +67,15 @@
         }
 
         @keyframes slideIn {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .question {
@@ -80,8 +89,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         .question h3 {
@@ -214,6 +228,7 @@
             margin-top: 15px;
             border-radius: 8px;
         }
+
         .container2 {
             position: relative;
             height: 1vh;
@@ -241,6 +256,7 @@
             0% {
                 background-position-x: 0;
             }
+
             100% {
                 background-position-x: -250rem;
             }
@@ -286,6 +302,7 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <h1>AIR</h1>
@@ -296,7 +313,7 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-    
+
     <div class="container">
         <main class="assessment-section">
             <h1>Assessments</h1>
@@ -334,15 +351,17 @@
                         <div class="option" onclick="selectOption(this, 3)">None</div>
                     </div>
                 </div>
-                 <div class="question" id="q3">
-                <h3>What type of area do you live in?</h3>
-                <div class="options">
-                    <button class="option-btn" onclick="nextQuestion('q3', 'Urban (High traffic)')">Urban (High traffic)</button>
-                    <button class="option-btn" onclick="nextQuestion('q3', 'Suburban')">Suburban</button>
-                    <button class="option-btn" onclick="nextQuestion('q3', 'Industrial area')">Industrial area</button>
-                    <button class="option-btn" onclick="nextQuestion('q3', 'Rural')">Rural</button>
+                <div class="question" id="q3">
+                    <h3>What type of area do you live in?</h3>
+                    <div class="options">
+                        <button class="option-btn" onclick="nextQuestion('q3', 'Urban (High traffic)')">Urban (High
+                            traffic)</button>
+                        <button class="option-btn" onclick="nextQuestion('q3', 'Suburban')">Suburban</button>
+                        <button class="option-btn" onclick="nextQuestion('q3', 'Industrial area')">Industrial
+                            area</button>
+                        <button class="option-btn" onclick="nextQuestion('q3', 'Rural')">Rural</button>
+                    </div>
                 </div>
-            </div>
 
                 <div class="question" data-id="4">
                     <h3>How would you rate your current diet?</h3>
@@ -357,7 +376,7 @@
 
             <div class="results" id="results">
                 <h2>Your Health Assessment Results</h2>
-                
+
                 <div class="recommendation-card">
                     <h3>Current AQI in Your Area</h3>
                     <div class="aqi-meter">
@@ -425,7 +444,7 @@
             document.querySelectorAll(`.question[data-id="${questionId}"] .option`).forEach(opt => {
                 opt.classList.remove('selected');
             });
-            
+
             // Select current option
             element.classList.add('selected');
             userResponses[questionId] = element.textContent;
@@ -508,4 +527,5 @@
         updateProgress();
     </script>
 </body>
+
 </html>
