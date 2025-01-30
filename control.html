@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air Pollution Control Dashboard</title>
+    <link rel="stylesheet" href="control.css">
+    <script src="control.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <h1>Industrial Air Pollution Control</h1>
+        </div>
+        <div class="header-icons">
+            <i class="fas fa-bell"></i>
+            <i class="fas fa-cog"></i>
+            <div class="profile-icon">ID</div>
+        </div>
+    </header>
+
+    <main>
+        <section class="alert">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Next inspection: July 15, 2025</span>
+        </section>
+
+        <section class="stats">
+            <div class="card">
+                <h3>Current Emission Level</h3>
+                <p class="value green">23 µg/m³</p>
+                <p>Within permitted limits</p>
+            </div>
+
+            <div class="card">
+                <h3>Compliance Score</h3>
+                <p class="value blue">98%</p>
+                <p>Last 30 days</p>
+            </div>
+
+            <div class="card">
+                <h3>Active Sensors</h3>
+                <p class="value">12/12</p>
+                <p>All systems operational</p>
+            </div>
+        </section>
+
+        <section class="content">
+            <div class="left">
+                <div class="card">
+                    <h3>Real-Time Monitoring</h3>
+                    <div class="chart">
+                        <img src="graph.png" alt="Chart">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Recent Incidents</h3>
+                    <div class="incident">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Maintenance check completed</span>
+                        <span class="time">2h ago</span>
+                    </div>
+                    <div class="incident">
+                        <i class="fas fa-info-circle"></i>
+                        <span>Sensor recalibration</span>
+                        <span class="time">6h ago</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="card">
+                    <h3>Quick Actions</h3>
+                    <button class="action"><i class="fas fa-file-alt"></i> Submit Report</button>
+                    <button class="action"><i class="fas fa-exclamation-triangle"></i> Report Incident</button>
+                    <button class="action"><i class="fas fa-users"></i> Contact Support</button>
+                </div>
+
+                <div class="card">
+                    <h3>Compliance Resources</h3>
+                    <a href="#">Air Quality Guidelines</a>
+                    <a href="#">Maintenance Schedule</a>
+                    <a href="#">Regulatory Updates</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
