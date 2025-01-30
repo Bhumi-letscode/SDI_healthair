@@ -522,7 +522,12 @@ ul {
 }
 .footer-logo {
   margin-bottom: 30px;
+  
 }
+.footer-logo h1 {
+    color: white;
+}
+
 .footer-logo img {
     max-width: 200px;
 }
