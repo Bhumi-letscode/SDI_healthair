@@ -7,11 +7,10 @@
         width: 100%;
         top: 0;
         z-index: 1000;
-    }
-
-    .navbar navbar-expand-lg {
         padding-right: 60px;
     }
+
+    
 
     .navbar.scrolled {
         background: var(--dark);
