@@ -13,16 +13,18 @@
 
     <!-- Navbar -->
     <header>
-        <div class="logo">Plotlist</div>
+        <div class="logo">AIR</div>
         <nav>
             <ul>
                 <li><a href="index-one-page.html">Home</a></li>
-                <li><a href="#">Category</a></li>
-                <li><a href="#">Listing</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="index.html">Environment Top</a></li>
+                <li><a href="datacollection.html">Dust Collection</a></li>
+                <li><a href="datacollection.html">Dust Fire Prevention System</a></li>
+                <li><a href="datacollection.html">Exhaust Gas Treatment</a></li>
+                <li><a href="companydetails.html">Emission Data</a></li>
             </ul>
         </nav>
-        <button class="btn">+ Add Your Listing</button>
+
     </header>
 
     <!-- Hero Section -->
@@ -57,46 +59,46 @@
                     <h2 class="section-title fade-in">About </h2>
                     <p class="subtitle fade-in">Creating ideal working conditions</p>
                     <p class="about-text fade-in">
-                        <<<<<<< HEAD At Sinto, we believe that every workplace should be a space where safety meets
-                            innovation. Our journey began with a simple mission: to transform industrial environments
-                            into spaces that prioritize both productivity and worker well-being. </p>
-                            <p class="about-text fade-in">
-                                Through decades of research and development, we've pioneered solutions that set new
-                                standards in workplace safety and comfort. Our commitment to innovation has made us
-                                a trusted partner for industries worldwide.
-                                =======
-                                In order to secure a brighter future for people and industries, our working environment
-                                must also be flourishing.
-                                This means keeping people safe and healthy, but it also means creating spaces that are
-                                pleasant and enjoyable.
-                                It is important to keep workers safe and comfortable at all times, away from the many
-                                hidden dangers of industrial sites.
-                                Protecting workers is not just about the employees themselves, it’s also about ensuring
-                                a good life for their families as well.
-                                Sinto has spent decades developing technologies to create optimized solutions so our
-                                customers can achieve the ideal working conditions they want.</p>
-                            <p class="about-text fade-in">
+                        We believe that every workplace should be a space where safety meets
+                        innovation. Our journey began with a simple mission: to transform industrial environments
+                        into spaces that prioritize both productivity and worker well-being. </p>
+                    <p class="about-text fade-in">
+                        Through decades of research and development, we've pioneered solutions that set new
+                        standards in workplace safety and comfort. Our commitment to innovation has made us
+                        a trusted partner for industries worldwide.
+                        =======
+                        In order to secure a brighter future for people and industries, our working environment
+                        must also be flourishing.
+                        This means keeping people safe and healthy, but it also means creating spaces that are
+                        pleasant and enjoyable.
+                        It is important to keep workers safe and comfortable at all times, away from the many
+                        hidden dangers of industrial sites.
+                        Protecting workers is not just about the employees themselves, it’s also about ensuring
+                        a good life for their families as well.
+                        Sinto has spent decades developing technologies to create optimized solutions so our
+                        customers can achieve the ideal working conditions they want.</p>
+                    <p class="about-text fade-in">
 
-                                >>>>>>> e0c123f977cb0544b0c91f3cdf794111b4af1fa5
-                            </p>
-                            <div class="stats-grid">
-                                <div class="stat-box fade-in">
-                                    <div class="stat-number">90+</div>
-                                    <div class="stat-label">Years of Excellence</div>
-                                </div>
-                                <div class="stat-box fade-in">
-                                    <div class="stat-number">50+</div>
-                                    <div class="stat-label">Countries Served</div>
-                                </div>
-                                <div class="stat-box fade-in">
-                                    <div class="stat-number">1000+</div>
-                                    <div class="stat-label">Projects Completed</div>
-                                </div>
-                                <div class="stat-box fade-in">
-                                    <div class="stat-number">98%</div>
-                                    <div class="stat-label">Client Satisfaction</div>
-                                </div>
-                            </div>
+                        >>>>>>> e0c123f977cb0544b0c91f3cdf794111b4af1fa5
+                    </p>
+                    <div class="stats-grid">
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">90+</div>
+                            <div class="stat-label">Years of Excellence</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">50+</div>
+                            <div class="stat-label">Countries Served</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">1000+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat-box fade-in">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">Client Satisfaction</div>
+                        </div>
+                    </div>
                 </div>
                 <div class="about-image fade-in">
                     <div class="image-container">
@@ -220,6 +222,10 @@
 
 
 <script>
+
+    document.querySelector(".menu-toggle").addEventListener("click", function () {
+        document.querySelector("nav ul").classList.toggle("show");
+    });
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
         return (

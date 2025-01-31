@@ -9,45 +9,107 @@
 }
 
 /* Navbar */
+
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.178);
+    /* Dark transparent background */
+    backdrop-filter: blur(10px);
+    /* Smooth blur effect */
+    transition: all 0.3s ease-in-out;
 }
 
 .logo {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 26px;
+    font-weight: 700;
     color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
 
 nav ul {
+
     list-style: none;
     display: flex;
+    gap: 25px;
+    padding: 0;
 }
 
 nav ul li {
-    margin: 0 15px;
+    position: relative;
+    font-size: small;
 }
 
 nav ul li a {
     text-decoration: none;
     color: #fff;
-    font-weight: 400;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
 }
 
-.btn {
-    background: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
+nav ul li a:hover {
+    color: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+    /* Highlight color */
 }
+
+/* Underline Effect */
+nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+    left: 50%;
+    bottom: -5px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 30px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.11);
+        padding: 20px;
+        border-radius: 8px;
+        display: none;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
 
 /* Hero Section with Parallax */
 .hero {

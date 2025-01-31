@@ -8,49 +8,80 @@ body {
 }
 
 /* Header */
-.header {
+header {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background: #fff;
-    border-bottom: 2px solid #ddd;
+    align-items: center;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.178);
+    /* Dark transparent background */
+    backdrop-filter: blur(10px);
+    /* Smooth blur effect */
+    transition: all 0.3s ease-in-out;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo img {
-    width: 10px;
-    margin-right: 10px;
-}
-
-.header-icons {
-    display: flex;
-    align-items: center;
-}
-
-.header-icons i {
-    font-size: 20px;
-    margin: 0 10px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     cursor: pointer;
-    color: gray;
 }
 
-.profile-icon {
-    width: 30px;
-    height: 30px;
-    background: rgb(9, 56, 121);
-    color: white;
+nav ul {
+
+    list-style: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
+    gap: 25px;
+    padding: 0;
+    margin-right: 60px;
 }
+
+nav ul li {
+    position: relative;
+    font-size: small;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 18px;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+    /* Highlight color */
+}
+
+/* Underline Effect */
+nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, rgba(9, 56, 121, 1) 23%, rgba(0, 211, 255, 0.8576024159663865) 100%);
+    left: 50%;
+    bottom: -5px;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+nav ul li:hover::after {
+    width: 100%;
+}
+
 
 /* Alert */
 .alert {
+    margin-top: 100px;
     background: #ffcc00;
     padding: 15px;
     display: flex;
@@ -176,7 +207,7 @@ body {
 /* ======= 3D Footer ======= */
 footer {
     position: relative;
-    background-color:#FFFFFF;
+    background-color: #FFFFFF;
     padding: 50px 20px;
     text-align: center;
 }
@@ -196,6 +227,7 @@ footer {
     0% {
         background-position-x: 0;
     }
+
     100% {
         background-position-x: -250rem;
     }
